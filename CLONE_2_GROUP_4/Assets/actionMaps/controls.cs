@@ -99,6 +99,51 @@ public partial class @Controls: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""QAction"",
+                    ""type"": ""Button"",
+                    ""id"": ""ca59e36f-5200-4049-b42d-829d3a8c38dd"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""WAction"",
+                    ""type"": ""Button"",
+                    ""id"": ""249c5609-5a3f-4dee-b12b-fdb7545f426d"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""EAction"",
+                    ""type"": ""Button"",
+                    ""id"": ""74bc4ed7-cb43-4d6e-8e43-2fdeeec18c26"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""RAction"",
+                    ""type"": ""Button"",
+                    ""id"": ""aefde751-7b5e-4bca-aeb0-a1c384aaa485"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Pause"",
+                    ""type"": ""Button"",
+                    ""id"": ""618c1670-6a09-4f02-9a96-df528411a5a4"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -110,6 +155,61 @@ public partial class @Controls: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""groups"": "";Keyboard"",
                     ""action"": ""Target"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""ad77c631-93ea-4c60-b978-cd9a400bc722"",
+                    ""path"": ""<Keyboard>/q"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": "";Keyboard"",
+                    ""action"": ""QAction"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""9814e200-e749-49be-829c-c562b94118a4"",
+                    ""path"": ""<Keyboard>/w"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": "";Keyboard"",
+                    ""action"": ""WAction"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""ac8f7140-abe3-4375-b911-e8462ae0b817"",
+                    ""path"": ""<Keyboard>/e"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": "";Keyboard"",
+                    ""action"": ""EAction"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""c8028ee2-53bf-4222-8b74-7b7cfc2169b3"",
+                    ""path"": ""<Keyboard>/r"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": "";Keyboard"",
+                    ""action"": ""RAction"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""3fbb5044-c30a-436f-ac73-da279f051d8b"",
+                    ""path"": ""<Keyboard>/escape"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": "";Keyboard"",
+                    ""action"": ""Pause"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -133,6 +233,11 @@ public partial class @Controls: IInputActionCollection2, IDisposable
         // Player
         m_Player = asset.FindActionMap("Player", throwIfNotFound: true);
         m_Player_Target = m_Player.FindAction("Target", throwIfNotFound: true);
+        m_Player_QAction = m_Player.FindAction("QAction", throwIfNotFound: true);
+        m_Player_WAction = m_Player.FindAction("WAction", throwIfNotFound: true);
+        m_Player_EAction = m_Player.FindAction("EAction", throwIfNotFound: true);
+        m_Player_RAction = m_Player.FindAction("RAction", throwIfNotFound: true);
+        m_Player_Pause = m_Player.FindAction("Pause", throwIfNotFound: true);
     }
 
     ~@Controls()
@@ -214,6 +319,11 @@ public partial class @Controls: IInputActionCollection2, IDisposable
     private readonly InputActionMap m_Player;
     private List<IPlayerActions> m_PlayerActionsCallbackInterfaces = new List<IPlayerActions>();
     private readonly InputAction m_Player_Target;
+    private readonly InputAction m_Player_QAction;
+    private readonly InputAction m_Player_WAction;
+    private readonly InputAction m_Player_EAction;
+    private readonly InputAction m_Player_RAction;
+    private readonly InputAction m_Player_Pause;
     /// <summary>
     /// Provides access to input actions defined in input action map "Player".
     /// </summary>
@@ -229,6 +339,26 @@ public partial class @Controls: IInputActionCollection2, IDisposable
         /// Provides access to the underlying input action "Player/Target".
         /// </summary>
         public InputAction @Target => m_Wrapper.m_Player_Target;
+        /// <summary>
+        /// Provides access to the underlying input action "Player/QAction".
+        /// </summary>
+        public InputAction @QAction => m_Wrapper.m_Player_QAction;
+        /// <summary>
+        /// Provides access to the underlying input action "Player/WAction".
+        /// </summary>
+        public InputAction @WAction => m_Wrapper.m_Player_WAction;
+        /// <summary>
+        /// Provides access to the underlying input action "Player/EAction".
+        /// </summary>
+        public InputAction @EAction => m_Wrapper.m_Player_EAction;
+        /// <summary>
+        /// Provides access to the underlying input action "Player/RAction".
+        /// </summary>
+        public InputAction @RAction => m_Wrapper.m_Player_RAction;
+        /// <summary>
+        /// Provides access to the underlying input action "Player/Pause".
+        /// </summary>
+        public InputAction @Pause => m_Wrapper.m_Player_Pause;
         /// <summary>
         /// Provides access to the underlying input action map instance.
         /// </summary>
@@ -258,6 +388,21 @@ public partial class @Controls: IInputActionCollection2, IDisposable
             @Target.started += instance.OnTarget;
             @Target.performed += instance.OnTarget;
             @Target.canceled += instance.OnTarget;
+            @QAction.started += instance.OnQAction;
+            @QAction.performed += instance.OnQAction;
+            @QAction.canceled += instance.OnQAction;
+            @WAction.started += instance.OnWAction;
+            @WAction.performed += instance.OnWAction;
+            @WAction.canceled += instance.OnWAction;
+            @EAction.started += instance.OnEAction;
+            @EAction.performed += instance.OnEAction;
+            @EAction.canceled += instance.OnEAction;
+            @RAction.started += instance.OnRAction;
+            @RAction.performed += instance.OnRAction;
+            @RAction.canceled += instance.OnRAction;
+            @Pause.started += instance.OnPause;
+            @Pause.performed += instance.OnPause;
+            @Pause.canceled += instance.OnPause;
         }
 
         /// <summary>
@@ -272,6 +417,21 @@ public partial class @Controls: IInputActionCollection2, IDisposable
             @Target.started -= instance.OnTarget;
             @Target.performed -= instance.OnTarget;
             @Target.canceled -= instance.OnTarget;
+            @QAction.started -= instance.OnQAction;
+            @QAction.performed -= instance.OnQAction;
+            @QAction.canceled -= instance.OnQAction;
+            @WAction.started -= instance.OnWAction;
+            @WAction.performed -= instance.OnWAction;
+            @WAction.canceled -= instance.OnWAction;
+            @EAction.started -= instance.OnEAction;
+            @EAction.performed -= instance.OnEAction;
+            @EAction.canceled -= instance.OnEAction;
+            @RAction.started -= instance.OnRAction;
+            @RAction.performed -= instance.OnRAction;
+            @RAction.canceled -= instance.OnRAction;
+            @Pause.started -= instance.OnPause;
+            @Pause.performed -= instance.OnPause;
+            @Pause.canceled -= instance.OnPause;
         }
 
         /// <summary>
@@ -332,5 +492,40 @@ public partial class @Controls: IInputActionCollection2, IDisposable
         /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
         /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
         void OnTarget(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "QAction" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnQAction(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "WAction" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnWAction(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "EAction" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnEAction(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "RAction" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnRAction(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "Pause" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnPause(InputAction.CallbackContext context);
     }
 }
