@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEditor;
 using UnityEditor.ShaderGraph;
 using UnityEngine;
@@ -17,6 +18,21 @@ public class Player : MonoBehaviour
     //pause stuff
     public bool isPaused = false;
     public GameObject pauseScreen;
+
+    //player actions stuff
+    //actions ui
+    public qActionUI qActionUI;
+    public bool canUseQAction = true;
+    public ParticleSystem qActionRepresentation;
+    public wActionUI wActionUI;
+    public bool canUseWAction = true;
+    public ParticleSystem wActionRepresentation;
+    public eActionUI eActionUI;
+    public bool canUseEAction = true;
+    public ParticleSystem eActionRepresentation;
+    public rActionUI rActionUI;
+    public bool canUseRAction = true;
+    public ParticleSystem rActionRepresentation;
     private void OnEnable()
     {
         var playerInput = new Controls();
@@ -103,22 +119,46 @@ public class Player : MonoBehaviour
 
     public void QAction()
     {
-
+        if(isPaused == false && canUseQAction == true)
+        {
+            qActionUI.UseQBar();
+            qActionRepresentation.Play();
+            canUseQAction = false;
+            StartCoroutine(GiveBackQBar());
+        }
     }
 
     public void WAction()
     {
-
+        if (isPaused == false && canUseWAction == true)
+        {
+            wActionUI.UseWBar();
+            wActionRepresentation.Play();
+            canUseWAction = false;
+            StartCoroutine(GiveBackWBar());
+        }
     }
 
     public void EAction()
     {
-
+        if (isPaused == false && canUseEAction == true)
+        {
+            eActionUI.UseEBar();
+            eActionRepresentation.Play();
+            canUseEAction = false;
+            StartCoroutine(GiveBackEBar());
+        }
     }
 
     public void RAction()
     {
-
+        if (isPaused == false && canUseRAction == true)
+        {
+            rActionUI.UseRBar();
+            rActionRepresentation.Play();
+            canUseRAction = false;
+            StartCoroutine(GiveBackRBar());
+        }
     }
 
     public void OnTriggerEnter(Collider other)
@@ -128,4 +168,41 @@ public class Player : MonoBehaviour
             Destroy(other.gameObject);
         }
     }
+
+    public IEnumerator GiveBackQBar()
+    {
+        yield return new WaitForSeconds(0.5f);
+        qActionUI.shouldFillQBar = true;
+        yield return new WaitForSeconds(3f);
+        canUseQAction = true;
+        qActionUI.shouldFillQBar = false;
+    }
+
+    public IEnumerator GiveBackWBar()
+    {
+        yield return new WaitForSeconds(0.5f);
+        wActionUI.shouldFillWBar = true;
+        yield return new WaitForSeconds(3f);
+        canUseWAction = true;
+        wActionUI.shouldFillWBar = false;
+    }
+
+    public IEnumerator GiveBackEBar()
+    {
+        yield return new WaitForSeconds(0.5f);
+        eActionUI.shouldFillEBar = true;
+        yield return new WaitForSeconds(3f);
+        canUseEAction = true;
+        eActionUI.shouldFillEBar = false;
+    }
+
+    public IEnumerator GiveBackRBar()
+    {
+        yield return new WaitForSeconds(0.5f);
+        rActionUI.shouldFillRBar = true;
+        yield return new WaitForSeconds(3f);
+        canUseRAction = true;
+        rActionUI.shouldFillRBar = false;
+    }
 }
+
