@@ -1,3 +1,4 @@
+using UnityEditor;
 using UnityEditor.ShaderGraph;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -12,6 +13,10 @@ public class Player : MonoBehaviour
     public float playerSpeed;
     public float playerRotationSpeed;
     private CharacterController characterController;
+
+    //pause stuff
+    public bool isPaused = false;
+    public GameObject pauseScreen;
     private void OnEnable()
     {
         var playerInput = new Controls();
@@ -19,6 +24,16 @@ public class Player : MonoBehaviour
         playerInput.Player.Enable();
 
         playerInput.Player.Target.performed += ctx => Target();
+
+        playerInput.Player.Pause.performed += ctx => Pause();
+
+        playerInput.Player.QAction.performed += ctx => QAction();
+
+        playerInput.Player.WAction.performed += ctx => WAction();
+
+        playerInput.Player.EAction.performed += ctx => EAction();
+
+        playerInput.Player.RAction.performed += ctx => RAction();
     }
 
 
@@ -47,21 +62,63 @@ public class Player : MonoBehaviour
 
     public void Target()
     {
-        Ray ray = Camera.main.ScreenPointToRay(Mouse.current.position.ReadValue());
-        RaycastHit hit;
-        if (Physics.Raycast(ray, out hit, Mathf.Infinity, targetLayer))
+        if(isPaused == false)
         {
+            Ray ray = Camera.main.ScreenPointToRay(Mouse.current.position.ReadValue());
+            RaycastHit hit;
+            if (Physics.Raycast(ray, out hit, Mathf.Infinity, targetLayer))
+            {
 
 
-            GameObject spawned = Instantiate(moveTarget, hit.point, Quaternion.identity);
-            target = spawned.transform.Find("thePoint");
-            Debug.Log("Spawned at: " + hit.point);
-            Destroy(spawned, 10f);
+                GameObject spawned = Instantiate(moveTarget, hit.point, Quaternion.identity);
+                target = spawned.transform.Find("thePoint");
+                Debug.Log("Spawned at: " + hit.point);
+                Destroy(spawned, 10f);
+            }
+            else
+            {
+                Debug.Log("Right-click not on target layer");
+            }
         }
-        else
+    }
+
+    public void Pause()
+    {
+        if(isPaused == false)
         {
-            Debug.Log("Right-click not on target layer");
+            isPaused = true;
+            pauseScreen.SetActive(true);
+            Time.timeScale = 0f;
+            Debug.Log("should pause");
         }
+
+        else if(isPaused == true)
+        {
+            isPaused = false;
+            pauseScreen.SetActive(false);
+            Time.timeScale = 1f;
+            Debug.Log("should unpause");
+        }
+    }
+
+    public void QAction()
+    {
+
+    }
+
+    public void WAction()
+    {
+
+    }
+
+    public void EAction()
+    {
+
+    }
+
+    public void RAction()
+    {
+
     }
 
     public void OnTriggerEnter(Collider other)
