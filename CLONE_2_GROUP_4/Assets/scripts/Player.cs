@@ -56,7 +56,7 @@ public class Player : MonoBehaviour
             GameObject spawned = Instantiate(moveTarget, hit.point, Quaternion.identity);
             target = spawned.transform.Find("thePoint");
             Debug.Log("Spawned at: " + hit.point);
-            
+            Destroy(spawned, 10f);
         }
         else
         {
