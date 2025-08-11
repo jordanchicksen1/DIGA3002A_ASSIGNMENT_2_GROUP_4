@@ -4,14 +4,17 @@ using UnityEngine.UI;
 public class rActionUI : MonoBehaviour
 {
 
-    public float maxRBar = 3f;
+    public float maxRBar;
     public float currentRBar;
     public Image rBarPic;
 
     public bool shouldFillRBar = false;
 
+    public Player player;
+
     public void Start()
     {
+        maxRBar = player.artCooldownTime;
         currentRBar = maxRBar;
     }
 
@@ -22,7 +25,7 @@ public class rActionUI : MonoBehaviour
 
     public void RefillRBar()
     {
-        if (shouldFillRBar == true && currentRBar < 3)
+        if (shouldFillRBar == true && currentRBar < player.artCooldownTime)
         {
             currentRBar += Time.deltaTime;
             updateRBar();
@@ -31,7 +34,7 @@ public class rActionUI : MonoBehaviour
 
     public void UseRBar()
     {
-        currentRBar = currentRBar - 3f;
+        currentRBar = currentRBar - player.artCooldownTime;
         updateRBar();
     }
     public void updateR(float amount)

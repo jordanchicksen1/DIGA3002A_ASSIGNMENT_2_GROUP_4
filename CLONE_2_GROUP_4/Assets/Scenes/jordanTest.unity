@@ -2247,10 +2247,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 386004c75082edd458ff7f9180ad7cf3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxWBar: 3
+  maxWBar: 0
   currentWBar: 0
   wBarPic: {fileID: 634743958}
   shouldFillWBar: 0
+  player: {fileID: 2058513131}
 --- !u!1 &976655699
 GameObject:
   m_ObjectHideFlags: 0
@@ -3040,10 +3041,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5b2157250141e374e856593771335018, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxRBar: 3
+  maxRBar: 0
   currentRBar: 0
   rBarPic: {fileID: 1927082183}
   shouldFillRBar: 0
+  player: {fileID: 2058513131}
 --- !u!1 &1293978688
 GameObject:
   m_ObjectHideFlags: 0
@@ -3707,10 +3709,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4a11cb7d027db874685188c50b44cbcf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxEBar: 3
+  maxEBar: 0
   currentEBar: 0
   eBarPic: {fileID: 1377632283}
   shouldFillEBar: 0
+  player: {fileID: 2058513131}
 --- !u!1 &1488944212
 GameObject:
   m_ObjectHideFlags: 0
@@ -4168,10 +4171,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7c95bf4765024d34cbfe13b37b95dbb5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxQBar: 3
+  maxQBar: 0
   currentQBar: 0
   qBarPic: {fileID: 840082523}
   shouldFillQBar: 0
+  player: {fileID: 2058513131}
 --- !u!1 &1627437672
 GameObject:
   m_ObjectHideFlags: 0
@@ -5490,6 +5494,7 @@ MonoBehaviour:
   playerRotationSpeed: 8
   isPaused: 0
   pauseScreen: {fileID: 1053738124}
+  artCooldownTime: 7
   qActionUI: {fileID: 1579396833}
   canUseQAction: 1
   qActionRepresentation: {fileID: 2011625840}

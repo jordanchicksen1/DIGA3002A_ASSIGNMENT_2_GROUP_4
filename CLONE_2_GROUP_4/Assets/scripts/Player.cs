@@ -20,6 +20,7 @@ public class Player : MonoBehaviour
     public GameObject pauseScreen;
 
     //player actions stuff
+    public float artCooldownTime = 3f;
     //actions ui
     public qActionUI qActionUI;
     public bool canUseQAction = true;
@@ -173,7 +174,7 @@ public class Player : MonoBehaviour
     {
         yield return new WaitForSeconds(0.5f);
         qActionUI.shouldFillQBar = true;
-        yield return new WaitForSeconds(3f);
+        yield return new WaitForSeconds(artCooldownTime);
         canUseQAction = true;
         qActionUI.shouldFillQBar = false;
     }
@@ -182,7 +183,7 @@ public class Player : MonoBehaviour
     {
         yield return new WaitForSeconds(0.5f);
         wActionUI.shouldFillWBar = true;
-        yield return new WaitForSeconds(3f);
+        yield return new WaitForSeconds(artCooldownTime);
         canUseWAction = true;
         wActionUI.shouldFillWBar = false;
     }
@@ -191,7 +192,7 @@ public class Player : MonoBehaviour
     {
         yield return new WaitForSeconds(0.5f);
         eActionUI.shouldFillEBar = true;
-        yield return new WaitForSeconds(3f);
+        yield return new WaitForSeconds(artCooldownTime);
         canUseEAction = true;
         eActionUI.shouldFillEBar = false;
     }
@@ -200,7 +201,7 @@ public class Player : MonoBehaviour
     {
         yield return new WaitForSeconds(0.5f);
         rActionUI.shouldFillRBar = true;
-        yield return new WaitForSeconds(3f);
+        yield return new WaitForSeconds(artCooldownTime);
         canUseRAction = true;
         rActionUI.shouldFillRBar = false;
     }

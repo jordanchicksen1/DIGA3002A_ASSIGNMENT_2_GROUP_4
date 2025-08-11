@@ -3,14 +3,17 @@ using UnityEngine.UI;
 
 public class wActionUI : MonoBehaviour
 {
-    public float maxWBar = 3f;
+    public float maxWBar;
     public float currentWBar;
     public Image wBarPic;
 
     public bool shouldFillWBar = false;
 
+    public Player player;
+
     public void Start()
     {
+        maxWBar = player.artCooldownTime;
         currentWBar = maxWBar;
     }
 
@@ -21,7 +24,7 @@ public class wActionUI : MonoBehaviour
 
     public void RefillWBar()
     {
-        if (shouldFillWBar == true && currentWBar < 3)
+        if (shouldFillWBar == true && currentWBar < player.artCooldownTime)
         {
             currentWBar += Time.deltaTime;
             updateWBar();
@@ -30,7 +33,7 @@ public class wActionUI : MonoBehaviour
 
     public void UseWBar()
     {
-        currentWBar = currentWBar - 3f;
+        currentWBar = currentWBar - player.artCooldownTime;
         updateWBar();
     }
     public void updateW(float amount)

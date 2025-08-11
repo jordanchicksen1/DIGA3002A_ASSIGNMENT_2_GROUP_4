@@ -3,14 +3,17 @@ using UnityEngine.UI;
 
 public class eActionUI : MonoBehaviour
 {
-    public float maxEBar = 3f;
+    public float maxEBar;
     public float currentEBar;
     public Image eBarPic;
 
     public bool shouldFillEBar = false;
 
+    public Player player;
+
     public void Start()
     {
+        maxEBar = player.artCooldownTime;
         currentEBar = maxEBar;
     }
 
@@ -21,7 +24,7 @@ public class eActionUI : MonoBehaviour
 
     public void RefillEBar()
     {
-        if (shouldFillEBar == true && currentEBar < 3)
+        if (shouldFillEBar == true && currentEBar < player.artCooldownTime)
         {
             currentEBar += Time.deltaTime;
             updateEBar();
@@ -30,7 +33,7 @@ public class eActionUI : MonoBehaviour
 
     public void UseEBar()
     {
-        currentEBar = currentEBar - 3f;
+        currentEBar = currentEBar - player.artCooldownTime;
         updateEBar();
     }
     public void updateE(float amount)

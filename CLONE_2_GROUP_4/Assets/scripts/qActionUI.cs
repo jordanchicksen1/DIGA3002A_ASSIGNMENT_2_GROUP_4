@@ -3,14 +3,17 @@ using UnityEngine.UI;
 
 public class qActionUI : MonoBehaviour
 {
-    public float maxQBar = 3f;
+    public float maxQBar;
     public float currentQBar;
     public Image qBarPic;
 
     public bool shouldFillQBar = false;
 
+    public Player player;
+
     public void Start()
     {
+       maxQBar = player.artCooldownTime;
         currentQBar = maxQBar;
     }
 
@@ -21,7 +24,7 @@ public class qActionUI : MonoBehaviour
 
     public void RefillQBar()
     {
-        if (shouldFillQBar == true && currentQBar < 3)
+        if (shouldFillQBar == true && currentQBar < player.artCooldownTime)
         {
             currentQBar += Time.deltaTime;
             updateQBar();
@@ -30,7 +33,7 @@ public class qActionUI : MonoBehaviour
 
     public void UseQBar()
     {
-        currentQBar = currentQBar - 3f;
+        currentQBar = currentQBar - player.artCooldownTime;
         updateQBar();
     }
     public void updateQ(float amount)
