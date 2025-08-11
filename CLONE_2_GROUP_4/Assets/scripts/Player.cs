@@ -172,7 +172,7 @@ public class Player : MonoBehaviour
 
     public IEnumerator GiveBackQBar()
     {
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSeconds(0f);
         qActionUI.shouldFillQBar = true;
         yield return new WaitForSeconds(artCooldownTime);
         canUseQAction = true;
@@ -181,7 +181,7 @@ public class Player : MonoBehaviour
 
     public IEnumerator GiveBackWBar()
     {
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSeconds(0f);
         wActionUI.shouldFillWBar = true;
         yield return new WaitForSeconds(artCooldownTime);
         canUseWAction = true;
@@ -190,7 +190,7 @@ public class Player : MonoBehaviour
 
     public IEnumerator GiveBackEBar()
     {
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSeconds(0f);
         eActionUI.shouldFillEBar = true;
         yield return new WaitForSeconds(artCooldownTime);
         canUseEAction = true;
@@ -199,7 +199,7 @@ public class Player : MonoBehaviour
 
     public IEnumerator GiveBackRBar()
     {
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSeconds(0f);
         rActionUI.shouldFillRBar = true;
         yield return new WaitForSeconds(artCooldownTime);
         canUseRAction = true;
