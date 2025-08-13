@@ -9,11 +9,13 @@ public class Player : MonoBehaviour
     //player variables
     public GameObject moveTarget;
     public Transform target;
+    public Transform abilityTarget;
     public LayerMask targetLayer;
 
     public float playerSpeed;
     public float playerRotationSpeed;
     private CharacterController characterController;
+    private Abilities abilities;
 
     //pause stuff
     public bool isPaused = false;
@@ -47,7 +49,9 @@ public class Player : MonoBehaviour
 
         playerInput.Player.Pause.performed += ctx => Pause();
 
+        playerInput.Player.QAction.performed += ctx => AbiltityTarget();
         playerInput.Player.QAction.performed += ctx => QAction();
+        
 
         playerInput.Player.WAction.performed += ctx => WAction();
 
@@ -60,6 +64,7 @@ public class Player : MonoBehaviour
     public void Awake()
     {
         characterController = GetComponent<CharacterController>();
+        abilities = GetComponent<Abilities>();
     }
 
 
@@ -102,6 +107,28 @@ public class Player : MonoBehaviour
         }
     }
 
+    public void AbiltityTarget()
+    {
+        if (isPaused == false)
+        {
+            Ray ray = Camera.main.ScreenPointToRay(Mouse.current.position.ReadValue());
+            RaycastHit hit;
+            if (Physics.Raycast(ray, out hit, Mathf.Infinity, targetLayer))
+            {
+
+
+                GameObject spawned = Instantiate(moveTarget, hit.point, Quaternion.identity);
+                abilityTarget = spawned.transform.Find("thePoint");
+                Debug.Log("Spawned at: " + hit.point);
+                Destroy(spawned, 10f);
+            }
+            else
+            {
+                Debug.Log("Right-click not on target layer");
+            }
+        }
+    }
+
     public void Pause()
     {
         if(isPaused == false)
@@ -129,6 +156,7 @@ public class Player : MonoBehaviour
             qActionRepresentation.Play();
             canUseQAction = false;
             StartCoroutine(GiveBackQBar());
+            abilities.CastQAbility();
         }
     }
 

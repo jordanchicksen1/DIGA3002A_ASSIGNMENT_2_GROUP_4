@@ -5338,6 +5338,7 @@ GameObject:
   - component: {fileID: 2058513126}
   - component: {fileID: 2058513131}
   - component: {fileID: 2058513132}
+  - component: {fileID: 2058513133}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -5457,6 +5458,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveTarget: {fileID: 1274724095380652122, guid: c36348893cb15a34793d3493c5a4bf19, type: 3}
   target: {fileID: 1406600188551705439, guid: c36348893cb15a34793d3493c5a4bf19, type: 3}
+  abilityTarget: {fileID: 0}
   targetLayer:
     serializedVersion: 2
     m_Bits: 64
@@ -5464,7 +5466,7 @@ MonoBehaviour:
   playerRotationSpeed: 8
   isPaused: 0
   pauseScreen: {fileID: 1053738124}
-  artCooldownTime: 7
+  artCooldownTime: 4
   qActionUI: {fileID: 1579396833}
   canUseQAction: 1
   qActionRepresentation: {fileID: 2011625840}
@@ -5502,6 +5504,25 @@ CharacterController:
   m_SkinWidth: 0.08
   m_MinMoveDistance: 0.001
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &2058513133
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2058513125}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c031e9a592777fd43a47406a86cdf855, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  orbPrefab: {fileID: 6735494031553617864, guid: 028feee417b743343901950f18f929b3, type: 3}
+  orbSpeed: 15
+  maxRange: 8
+  damage: 30
+  damageLayers:
+    serializedVersion: 2
+    m_Bits: 0
 --- !u!198 &2121726494 stripped
 ParticleSystem:
   m_CorrespondingSourceObject: {fileID: 1398466052193757927, guid: 8866a1a30611a1b4188dc673fa5cc4a1, type: 3}

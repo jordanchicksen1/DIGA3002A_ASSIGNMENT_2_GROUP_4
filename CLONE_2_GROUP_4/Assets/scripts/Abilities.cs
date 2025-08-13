@@ -1,4 +1,6 @@
 using UnityEngine;
+using UnityEngine.InputSystem;
+
 
 public class Abilities : MonoBehaviour
 {
@@ -9,6 +11,12 @@ public class Abilities : MonoBehaviour
     [SerializeField] private float damage = 30f;
     [SerializeField] private LayerMask damageLayers;
 
+    private Player player;
+
+    private void Start()
+    {
+        player = GetComponent<Player>();
+    }
 
     void Update()
     {
@@ -17,10 +25,11 @@ public class Abilities : MonoBehaviour
 
     public void CastQAbility()
     {
-        Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        Vector3 mousePos = Camera.main.ScreenToWorldPoint(Mouse.current.position.ReadValue());
         mousePos.z = 0;
 
-        Vector3 direction = (mousePos - transform.position).normalized;
+        //Vector3 direction = (mousePos - transform.position).normalized;
+        Vector3 direction = (player.abilityTarget.position - player.transform.position).normalized;
 
         GameObject orb = Instantiate(orbPrefab, transform.position, Quaternion.identity);
         OrbProjectile orbScript = orb.GetComponent<OrbProjectile>();
