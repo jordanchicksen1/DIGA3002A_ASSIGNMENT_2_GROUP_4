@@ -16,46 +16,66 @@ public class enemy3 : MonoBehaviour
     public float laserRecoveryTime;
     public float rotationSpeed;
 
-    public bool isDoingLaser=false;
+    public bool isDoingLaser = false;
+    public Transform enemyNose;
+    public float minRange;
 
+    public healthManager healthManager;
 
     public void Update()
     {
-        if (isInEnemy3Range == true)
+        if (isInEnemy3Range)
         {
-            this.gameObject.transform.LookAt(player);
-            transform.position = Vector3.MoveTowards(transform.position, player.transform.position, enemy3Speed * Time.deltaTime);
+            if (!isDoingLaser)
+            {
+
+                transform.LookAt(player);
+                transform.position = Vector3.MoveTowards(transform.position, player.transform.position, enemy3Speed * Time.deltaTime);
+            }
+            else
+            {
+
+                transform.Rotate(0f, rotationSpeed * Time.deltaTime, 0f);
+            }
+
 
             laserTime += Time.deltaTime;
-
-            if (laserTime > laserRecoveryTime)
+            if (laserTime > laserRecoveryTime && !isDoingLaser)
             {
-                
                 StartCoroutine(ShootingLaser());
             }
-
-            if (isDoingLaser == true) 
-            { 
-                transform.Rotate(0f, rotationSpeed, 0f);
-            }
-           
         }
         else
         {
+
             transform.position = Vector3.MoveTowards(transform.position, stayingPoint.transform.position, enemy3Speed * Time.deltaTime);
         }
-    } 
+    }
 
     public IEnumerator ShootingLaser()
     {
-        yield return new WaitForSeconds(0);
+
         enemy3Speed = 0f;
+        isDoingLaser = true;
         laser.SetActive(true);
-        isDoingLaser = true;    
-        yield return new WaitForSeconds(2f);
-        enemy3Speed = originalEnemy3Speed;
-        laser.SetActive(false);
-        isDoingLaser = false;
-        laserTime = 0;
+        Ray ray = new Ray(enemyNose.position, enemyNose.forward);
+        RaycastHit hit;
+        if (Physics.Raycast(ray, out hit, minRange))
+        {
+
+            if (hit.collider.CompareTag("Player"))
+            {
+                healthManager.PlayerHit();
+            }
+        }
+            yield return new WaitForSeconds(2f);
+
+
+            enemy3Speed = originalEnemy3Speed;
+            laser.SetActive(false);
+            isDoingLaser = false;
+            laserTime = 0;
+        }
     }
-}
+
+
