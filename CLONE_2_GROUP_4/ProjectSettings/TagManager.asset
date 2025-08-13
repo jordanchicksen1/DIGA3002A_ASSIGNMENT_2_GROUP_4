@@ -12,6 +12,7 @@ TagManager:
   - Enemy2DetectionTrigger
   - Enemy3DetectionTrigger
   - Enemy4DetectionTrigger
+  - Laser
   layers:
   - Default
   - TransparentFX
