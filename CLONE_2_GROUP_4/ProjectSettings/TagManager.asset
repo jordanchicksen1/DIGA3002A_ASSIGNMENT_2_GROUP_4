@@ -9,6 +9,7 @@ TagManager:
   - Point
   - EnemyDetectionTrigger
   - EnemyProjectile
+  - Enemy2DetectionTrigger
   layers:
   - Default
   - TransparentFX
