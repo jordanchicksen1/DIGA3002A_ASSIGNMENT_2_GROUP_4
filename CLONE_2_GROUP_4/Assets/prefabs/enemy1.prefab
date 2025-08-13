@@ -175,6 +175,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2967012301610823438}
+  - {fileID: 2013696064911435558}
   m_Father: {fileID: 3032591466347806930}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &8859986450847972214
@@ -293,7 +294,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isInEnemyRange: 0
-  enemySpeed: 4
+  enemySpeed: 2
   player: {fileID: 0}
   stayingPoint: {fileID: 7340376784530527326}
   bullet: {fileID: 730105276190193827, guid: e034202070662d94990602597d09676a, type: 3}
@@ -328,12 +329,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6034859971611589725}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 3032591466347806930}
+  m_Father: {fileID: 7187263826027907755}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &4052758216960871022
 MeshFilter:
@@ -439,7 +440,6 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 7187263826027907755}
-  - {fileID: 2013696064911435558}
   - {fileID: 7340376784530527326}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

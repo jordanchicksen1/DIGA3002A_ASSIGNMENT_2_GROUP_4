@@ -10,6 +10,8 @@ TagManager:
   - EnemyDetectionTrigger
   - EnemyProjectile
   - Enemy2DetectionTrigger
+  - Enemy3DetectionTrigger
+  - Enemy4DetectionTrigger
   layers:
   - Default
   - TransparentFX
