@@ -9,12 +9,34 @@ public class eActionUI : MonoBehaviour
 
     public bool shouldFillEBar = false;
 
-    public Player player;
+    public PlayersPersistence playerScript;
 
     public void Start()
     {
-        maxEBar = player.artCooldownTime;
-        currentEBar = maxEBar;
+        GameObject player = GameObject.FindWithTag("Player");
+
+        if (player == null)
+        {
+            Debug.LogError("No object with tag 'Player' found!");
+            return;
+        }
+
+
+        playerScript = player.GetComponent<PlayersPersistence>();
+        if (playerScript == null)
+        {
+            playerScript = player.GetComponentInChildren<PlayersPersistence>();
+        }
+
+        if (playerScript != null)
+        {
+            maxEBar = playerScript.artCooldownTime;
+            currentEBar = maxEBar;
+        }
+        else
+        {
+            Debug.LogError("Player script not found on: " + player.name);
+        }
     }
 
     public void Update()
@@ -24,7 +46,7 @@ public class eActionUI : MonoBehaviour
 
     public void RefillEBar()
     {
-        if (shouldFillEBar == true && currentEBar < player.artCooldownTime)
+        if (shouldFillEBar == true && currentEBar < playerScript.artCooldownTime)
         {
             currentEBar += Time.deltaTime;
             updateEBar();
@@ -33,7 +55,7 @@ public class eActionUI : MonoBehaviour
 
     public void UseEBar()
     {
-        currentEBar = currentEBar - player.artCooldownTime;
+        currentEBar = currentEBar - playerScript.artCooldownTime;
         updateEBar();
     }
     public void updateE(float amount)

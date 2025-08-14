@@ -9,12 +9,34 @@ public class wActionUI : MonoBehaviour
 
     public bool shouldFillWBar = false;
 
-    public Player player;
+    public PlayersPersistence playerScript;
 
     public void Start()
     {
-        maxWBar = player.artCooldownTime;
-        currentWBar = maxWBar;
+        GameObject player = GameObject.FindWithTag("Player");
+
+        if (player == null)
+        {
+            Debug.LogError("No object with tag 'Player' found!");
+            return;
+        }
+
+
+        playerScript = player.GetComponent<PlayersPersistence>();
+        if (playerScript == null)
+        {
+            playerScript = player.GetComponentInChildren<PlayersPersistence>();
+        }
+
+        if (playerScript != null)
+        {
+            maxWBar = playerScript.artCooldownTime;
+            currentWBar = maxWBar;
+        }
+        else
+        {
+            Debug.LogError("Player script not found on: " + player.name);
+        }
     }
 
     public void Update()
@@ -24,7 +46,7 @@ public class wActionUI : MonoBehaviour
 
     public void RefillWBar()
     {
-        if (shouldFillWBar == true && currentWBar < player.artCooldownTime)
+        if (shouldFillWBar == true && currentWBar < playerScript.artCooldownTime)
         {
             currentWBar += Time.deltaTime;
             updateWBar();
@@ -33,7 +55,7 @@ public class wActionUI : MonoBehaviour
 
     public void UseWBar()
     {
-        currentWBar = currentWBar - player.artCooldownTime;
+        currentWBar = currentWBar - playerScript.artCooldownTime;
         updateWBar();
     }
     public void updateW(float amount)

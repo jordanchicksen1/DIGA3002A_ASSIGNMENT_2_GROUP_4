@@ -10,12 +10,34 @@ public class rActionUI : MonoBehaviour
 
     public bool shouldFillRBar = false;
 
-    public Player player;
+    public PlayersPersistence playerScript;
 
     public void Start()
     {
-        maxRBar = player.artCooldownTime;
-        currentRBar = maxRBar;
+        GameObject player = GameObject.FindWithTag("Player");
+
+        if (player == null)
+        {
+            Debug.LogError("No object with tag 'Player' found!");
+            return;
+        }
+
+
+        playerScript = player.GetComponent<PlayersPersistence>();
+        if (playerScript == null)
+        {
+            playerScript = player.GetComponentInChildren<PlayersPersistence>();
+        }
+
+        if (playerScript != null)
+        {
+            maxRBar = playerScript.artCooldownTime;
+            currentRBar = maxRBar;
+        }
+        else
+        {
+            Debug.LogError("Player script not found on: " + player.name);
+        }
     }
 
     public void Update()
@@ -25,7 +47,7 @@ public class rActionUI : MonoBehaviour
 
     public void RefillRBar()
     {
-        if (shouldFillRBar == true && currentRBar < player.artCooldownTime)
+        if (shouldFillRBar == true && currentRBar < playerScript.artCooldownTime)
         {
             currentRBar += Time.deltaTime;
             updateRBar();
@@ -34,7 +56,7 @@ public class rActionUI : MonoBehaviour
 
     public void UseRBar()
     {
-        currentRBar = currentRBar - player.artCooldownTime;
+        currentRBar = currentRBar - playerScript.artCooldownTime;
         updateRBar();
     }
     public void updateR(float amount)

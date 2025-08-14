@@ -7,7 +7,7 @@ public class enemy2 : MonoBehaviour
 
     //looking and moving towards player
     public float enemy2Speed = 8f;
-    public Transform player;
+    private Transform playerTransform;
     public Transform stayingPoint;
 
     //shooting bullet at player
@@ -17,13 +17,17 @@ public class enemy2 : MonoBehaviour
     public float shootRecoveryTime;
     public float bulletSpeed;
 
+    public void Start()
+    {
+        playerTransform = GameObject.FindWithTag("Player").transform;
+    }
 
     void Update()
     {
         if (isInEnemy2Range == true)
         {
-            this.gameObject.transform.LookAt(player);
-            transform.position = Vector3.MoveTowards(transform.position, player.transform.position, enemy2Speed * Time.deltaTime);
+            this.gameObject.transform.LookAt(playerTransform);
+            transform.position = Vector3.MoveTowards(transform.position, playerTransform.transform.position, enemy2Speed * Time.deltaTime);
 
             shootTime += Time.deltaTime;
 

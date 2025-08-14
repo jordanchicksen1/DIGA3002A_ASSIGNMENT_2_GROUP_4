@@ -7,7 +7,7 @@ public class enemy3 : MonoBehaviour
     //looking and moving towards player
     public float enemy3Speed = 2f;
     public float originalEnemy3Speed = 2f;
-    public Transform player;
+    public Transform playerTransform;
     public Transform stayingPoint;
 
     //shooting laser at player
@@ -22,6 +22,12 @@ public class enemy3 : MonoBehaviour
 
     public healthManager healthManager;
 
+    public void Start()
+    {
+        playerTransform = GameObject.FindWithTag("Player").transform;
+       
+    }
+
     public void Update()
     {
         if (isInEnemy3Range)
@@ -29,8 +35,8 @@ public class enemy3 : MonoBehaviour
             if (!isDoingLaser)
             {
 
-                transform.LookAt(player);
-                transform.position = Vector3.MoveTowards(transform.position, player.transform.position, enemy3Speed * Time.deltaTime);
+                transform.LookAt(playerTransform);
+                transform.position = Vector3.MoveTowards(transform.position, playerTransform.transform.position, enemy3Speed * Time.deltaTime);
             }
             else
             {
@@ -58,16 +64,7 @@ public class enemy3 : MonoBehaviour
         enemy3Speed = 0f;
         isDoingLaser = true;
         laser.SetActive(true);
-        Ray ray = new Ray(enemyNose.position, enemyNose.forward);
-        RaycastHit hit;
-        if (Physics.Raycast(ray, out hit, minRange))
-        {
-
-            if (hit.collider.CompareTag("Player"))
-            {
-                healthManager.PlayerHit();
-            }
-        }
+      
             yield return new WaitForSeconds(2f);
 
 
