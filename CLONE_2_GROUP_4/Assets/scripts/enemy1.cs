@@ -21,6 +21,7 @@ public class enemy1 : MonoBehaviour
     public void Start()
     {
         playerTransform = GameObject.FindWithTag("Player").transform;
+        Debug.Log("found player");
     }
     void Update()
     {

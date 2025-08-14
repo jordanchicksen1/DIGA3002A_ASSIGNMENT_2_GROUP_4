@@ -154,8 +154,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isInEnemy3Range: 0
-  enemy3Speed: 2
-  originalEnemy3Speed: 2
+  enemy3Speed: 4
+  originalEnemy3Speed: 4
   playerTransform: {fileID: 0}
   stayingPoint: {fileID: 2641736423819942942}
   laser: {fileID: 5158841594983381331}
