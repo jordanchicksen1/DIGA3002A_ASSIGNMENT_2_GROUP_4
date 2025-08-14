@@ -237,13 +237,25 @@ public class PlayersPersistence : MonoBehaviour
 
         }
 
-        if (other.CompareTag( "EnemyDetectionTrigger"))
+        if (other.CompareTag( "Enemy4DetectionTrigger"))
         {
             enemy4 enemy4 = other.GetComponentInParent<enemy4>();
 
             if (enemy4 != null)
             {
                 enemy4.isInEnemy4Range = true;
+                Debug.Log("is in the trigger4");
+            }
+
+        }
+
+        if (other.CompareTag("Enemy5DetectionTrigger"))
+        {
+            enemy5 enemy5 = other.GetComponentInParent<enemy5>();
+
+            if (enemy5 != null)
+            {
+                enemy5.isInEnemy5Range = true;
                 Debug.Log("is in the trigger4");
             }
 
@@ -286,13 +298,25 @@ public class PlayersPersistence : MonoBehaviour
 
         }
 
-        if (other.CompareTag("EnemyDetectionTrigger"))
+        if (other.CompareTag("Enemy4DetectionTrigger"))
         {
             enemy4 enemy4 = other.GetComponentInParent<enemy4>();
 
             if (enemy4 != null)
             {
                 enemy4.isInEnemy4Range = false;
+                Debug.Log("is in the trigger4");
+            }
+
+        }
+
+        if (other.CompareTag("Enemy5DetectionTrigger"))
+        {
+            enemy5 enemy5 = other.GetComponentInParent<enemy5>();
+
+            if (enemy5 != null)
+            {
+                enemy5.isInEnemy5Range = false;
                 Debug.Log("is in the trigger4");
             }
 

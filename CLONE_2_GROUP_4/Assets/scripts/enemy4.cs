@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.Rendering;
 
 public class enemy4 : MonoBehaviour
 {
@@ -21,6 +22,12 @@ public class enemy4 : MonoBehaviour
     public float shootRecoveryTime;
     public float bulletSpeed;
 
+    //spawning other enemies
+    public GameObject spawnedEnemy;
+    public Transform enemySpawnPoint1;
+    public Transform enemySpawnPoint2;
+    public float spawnTime;
+    public float spawnRecoveryTime;
 
     public void Start()
     {
@@ -65,6 +72,19 @@ public class enemy4 : MonoBehaviour
 
                     Destroy(projectile3, 2f);
                 }
+
+            }
+
+            spawnTime += Time.deltaTime;
+
+            if (spawnTime > spawnRecoveryTime)
+            {
+                spawnTime = 0;
+                {
+                    Instantiate(spawnedEnemy, enemySpawnPoint1.position, enemySpawnPoint1.rotation);
+                    Instantiate(spawnedEnemy, enemySpawnPoint2.position, enemySpawnPoint2.rotation);
+                }
+
 
             }
         }
