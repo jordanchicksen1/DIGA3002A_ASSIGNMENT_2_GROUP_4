@@ -588,6 +588,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: AllPlayerStuff
       objectReference: {fileID: 0}
+    - target: {fileID: 8768740241796417074, guid: 9f0bdc3780db7384a9ef213768757d0b, type: 3}
+      propertyPath: canUseQAction
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
