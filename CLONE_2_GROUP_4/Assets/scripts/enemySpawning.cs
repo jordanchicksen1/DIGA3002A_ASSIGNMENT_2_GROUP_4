@@ -10,21 +10,34 @@ public class enemySpawning : MonoBehaviour
     public int killGoal = 3;
     public int enemyCount = 3;
 
+    private int lastSpawnKillCount = 0;
+
     void Start()
     {
         listSize = enemyQueue.Count;
         index = 0;
+        SpawnBatch();
     }
-    
+
     void Update()
     {
-        if (enemiesKilled % killGoal == 0 && enemiesKilled > 0)
+        if (enemiesKilled >= lastSpawnKillCount + killGoal)
         {
-            for (int i = 0; i < enemyCount; i++)
-            {
-                GameObject enemy = Instantiate(enemyQueue[index], transform.position, Quaternion.identity);
-                index++;
-            }
+            SpawnBatch();
+            lastSpawnKillCount = enemiesKilled;
+        }
+    }
+
+    void SpawnBatch()
+    {
+        for (int i = 0; i < enemyCount; i++)
+        {
+            if (index >= listSize)
+                return;
+
+            Instantiate(enemyQueue[index], transform.position, Quaternion.identity);
+            index++;
         }
     }
 }
+
