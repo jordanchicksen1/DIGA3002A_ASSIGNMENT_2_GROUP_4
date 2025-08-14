@@ -144,6 +144,15 @@ public partial class @Controls: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""ConfirmEnd"",
+                    ""type"": ""Button"",
+                    ""id"": ""38b4322b-0c60-49dc-b6b3-57e25d242cd6"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -212,6 +221,17 @@ public partial class @Controls: IInputActionCollection2, IDisposable
                     ""action"": ""Pause"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""62b1c530-e0c4-4bba-8b2d-73c7d2c54789"",
+                    ""path"": ""<Keyboard>/enter"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": "";Keyboard"",
+                    ""action"": ""ConfirmEnd"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -238,6 +258,7 @@ public partial class @Controls: IInputActionCollection2, IDisposable
         m_Player_EAction = m_Player.FindAction("EAction", throwIfNotFound: true);
         m_Player_RAction = m_Player.FindAction("RAction", throwIfNotFound: true);
         m_Player_Pause = m_Player.FindAction("Pause", throwIfNotFound: true);
+        m_Player_ConfirmEnd = m_Player.FindAction("ConfirmEnd", throwIfNotFound: true);
     }
 
     ~@Controls()
@@ -324,6 +345,7 @@ public partial class @Controls: IInputActionCollection2, IDisposable
     private readonly InputAction m_Player_EAction;
     private readonly InputAction m_Player_RAction;
     private readonly InputAction m_Player_Pause;
+    private readonly InputAction m_Player_ConfirmEnd;
     /// <summary>
     /// Provides access to input actions defined in input action map "Player".
     /// </summary>
@@ -359,6 +381,10 @@ public partial class @Controls: IInputActionCollection2, IDisposable
         /// Provides access to the underlying input action "Player/Pause".
         /// </summary>
         public InputAction @Pause => m_Wrapper.m_Player_Pause;
+        /// <summary>
+        /// Provides access to the underlying input action "Player/ConfirmEnd".
+        /// </summary>
+        public InputAction @ConfirmEnd => m_Wrapper.m_Player_ConfirmEnd;
         /// <summary>
         /// Provides access to the underlying input action map instance.
         /// </summary>
@@ -403,6 +429,9 @@ public partial class @Controls: IInputActionCollection2, IDisposable
             @Pause.started += instance.OnPause;
             @Pause.performed += instance.OnPause;
             @Pause.canceled += instance.OnPause;
+            @ConfirmEnd.started += instance.OnConfirmEnd;
+            @ConfirmEnd.performed += instance.OnConfirmEnd;
+            @ConfirmEnd.canceled += instance.OnConfirmEnd;
         }
 
         /// <summary>
@@ -432,6 +461,9 @@ public partial class @Controls: IInputActionCollection2, IDisposable
             @Pause.started -= instance.OnPause;
             @Pause.performed -= instance.OnPause;
             @Pause.canceled -= instance.OnPause;
+            @ConfirmEnd.started -= instance.OnConfirmEnd;
+            @ConfirmEnd.performed -= instance.OnConfirmEnd;
+            @ConfirmEnd.canceled -= instance.OnConfirmEnd;
         }
 
         /// <summary>
@@ -527,5 +559,12 @@ public partial class @Controls: IInputActionCollection2, IDisposable
         /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
         /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
         void OnPause(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "ConfirmEnd" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnConfirmEnd(InputAction.CallbackContext context);
     }
 }
