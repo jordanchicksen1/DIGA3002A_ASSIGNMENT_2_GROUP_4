@@ -231,7 +231,7 @@ GameObject:
   - component: {fileID: 4014148156510967774}
   - component: {fileID: 2694890547589919366}
   m_Layer: 0
-  m_Name: Player(Persistent))
+  m_Name: Player(Persistent)
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -372,6 +372,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ff4fdc359ffc41f488e8d7ce3506eb5d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  levelSelection: {fileID: 0}
+  instruction: {fileID: 0}
+  levelDone: 0
+  currentLayer: 0
   moveTarget: {fileID: 1274724095380652122, guid: c36348893cb15a34793d3493c5a4bf19, type: 3}
   target: {fileID: 1406600188551705439, guid: c36348893cb15a34793d3493c5a4bf19, type: 3}
   targetLayer:
