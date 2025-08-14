@@ -33,5 +33,6 @@ public class scenechanger : MonoBehaviour
         levelToLoad = "Layer";
         int currentLayer = player.GetComponent<PlayersPersistence>().currentLayer;
         levelToLoad += (currentLayer+1).ToString();
+        player.transform.position = new Vector3(0,1.5f,0);
     }
 }
