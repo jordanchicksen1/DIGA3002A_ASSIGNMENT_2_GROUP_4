@@ -198,6 +198,106 @@ public class PlayersPersistence : MonoBehaviour
             Destroy(other.gameObject);
         }
     }
+    
+    private void OnTriggerStay(Collider other)
+    {
+        Debug.Log($"OnTriggerStay: {other.name}");
+
+        if (other.CompareTag("EnemyDetectionTrigger"))
+        {
+            enemy1 enemy1 = other.GetComponentInParent<enemy1>();
+
+            if (enemy1 != null)
+            {
+                enemy1.isInEnemyRange = true;
+                Debug.Log("is in the trigger");
+            }
+        }
+
+        if (other.CompareTag("Enemy2DetectionTrigger"))
+        {
+            enemy2 enemy2 = other.GetComponentInParent<enemy2>();
+
+            if (enemy2 != null)
+            {
+                enemy2.isInEnemy2Range = true;
+                Debug.Log("is in the trigger2");
+            }
+        }
+
+        if (other.CompareTag("Enemy3DetectionTrigger"))
+        {
+            enemy3 enemy3 = other.GetComponentInParent<enemy3>();
+
+            if (enemy3 != null)
+            {
+                enemy3.isInEnemy3Range = true;
+                Debug.Log("is in the trigger3");
+            }
+
+        }
+
+        if (other.CompareTag( "EnemyDetectionTrigger"))
+        {
+            enemy4 enemy4 = other.GetComponentInParent<enemy4>();
+
+            if (enemy4 != null)
+            {
+                enemy4.isInEnemy4Range = true;
+                Debug.Log("is in the trigger4");
+            }
+
+        }
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.CompareTag("EnemyDetectionTrigger"))
+        {
+            enemy1 enemy1 = other.GetComponentInParent<enemy1>();
+
+            if (enemy1 != null)
+            {
+                enemy1.isInEnemyRange = false;
+                Debug.Log("is in the trigger");
+            }
+        }
+
+        if (other.CompareTag("Enemy2DetectionTrigger"))
+        {
+            enemy2 enemy2 = other.GetComponentInParent<enemy2>();
+
+            if (enemy2 != null)
+            {
+                enemy2.isInEnemy2Range = false;
+                Debug.Log("is in the trigger2");
+            }
+        }
+
+        if (other.CompareTag("Enemy3DetectionTrigger"))
+        {
+            enemy3 enemy3 = other.GetComponentInParent<enemy3>();
+
+            if (enemy3 != null)
+            {
+                enemy3.isInEnemy3Range = false;
+                Debug.Log("is in the trigger3");
+            }
+
+        }
+
+        if (other.CompareTag("EnemyDetectionTrigger"))
+        {
+            enemy4 enemy4 = other.GetComponentInParent<enemy4>();
+
+            if (enemy4 != null)
+            {
+                enemy4.isInEnemy4Range = false;
+                Debug.Log("is in the trigger4");
+            }
+
+        }
+    }
 
     public IEnumerator GiveBackQBar()
     {
