@@ -2,36 +2,36 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class scenechanger : MonoBehaviour
 {
-    //Load layer levels according to what layer the player is on (current layer on player script)
-    //Find layers according to current layer level by searching for resources that have layer_(currentlevel) in the name
-    //Store them in this list
-    public List<string> scenes = new List<string>();
+    //Build a scene name string then load that scene
     public GameObject player;
-    public GameObject[] levels;
+    private string levelToLoad;
     
     void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player");
+        levelToLoad = "Layer";
         int currentLayer = player.GetComponent<PlayersPersistence>().currentLayer;
-        Debug.Log(currentLayer);
-
-        levels = Resources.LoadAll<GameObject>("Assets/Scenes/Levels");
-        String layerToFind = "Layer" + (currentLayer+1).ToString();
-        GameObject[] currentLayerLevels = levels.Where(go => go.name.Contains("layerToFind")).ToArray();
-        
-        foreach (GameObject obj in currentLayerLevels)
-        {
-            Debug.Log("Found resource: " + obj.name);
-        }
-        
-        Debug.Log("The level started!!");
+        levelToLoad += (currentLayer+1).ToString();
+        Debug.Log(levelToLoad);
     }
-    
-    void Update()
+
+    public void subLevelLoad(int sub)
     {
-        
+        levelToLoad += "_";
+        levelToLoad += sub.ToString();
+        Debug.Log(levelToLoad);
+        SceneManager.LoadScene(levelToLoad);
+        levelToLoad = "";
+        player.GetComponent<PlayersPersistence>().currentLayer += 1;
+        player.GetComponent<PlayersPersistence>().levelDone = false;
+        player.GetComponent<PlayersPersistence>().instruction.SetActive(true);
+        player.GetComponent<PlayersPersistence>().levelSelection.SetActive(false);
+        levelToLoad = "Layer";
+        int currentLayer = player.GetComponent<PlayersPersistence>().currentLayer;
+        levelToLoad += (currentLayer+1).ToString();
     }
 }

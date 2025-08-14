@@ -6,6 +6,12 @@ using UnityEngine.InputSystem;
 
 public class PlayersPersistence : MonoBehaviour
 {
+    //UI stuff for level selects
+    public GameObject levelSelection;
+    public GameObject instruction;
+    public bool levelDone = false;
+    private InputAction confirmEnd;
+    
     //Persistent variable testing
     public int currentLayer = 0;
     
@@ -60,7 +66,9 @@ public class PlayersPersistence : MonoBehaviour
     public void Awake()
     {
         characterController = GetComponent<CharacterController>();
-        DontDestroyOnLoad(this.gameObject);
+
+        confirmEnd = InputSystem.actions.FindAction("ConfirmEnd");
+        DontDestroyOnLoad(this.gameObject); //DontDestroyOnLoad for persistence
     }
 
 
@@ -78,6 +86,23 @@ public class PlayersPersistence : MonoBehaviour
             //move there
             transform.rotation = Quaternion.Slerp(transform.rotation, lookRotation, Time.deltaTime * playerRotationSpeed);
             transform.position = Vector3.MoveTowards(transform.position, target.position, playerSpeed * Time.deltaTime);
+        }
+        
+        //Confirming
+        if (confirmEnd.WasPressedThisFrame())
+        {
+            if (!levelDone)
+            {
+                instruction.SetActive(false);
+                levelDone = true;
+                levelSelection.SetActive(true);
+            } else if (levelDone)
+            {
+                instruction.SetActive(true);
+                levelDone = false;
+                levelSelection.SetActive(false);
+            }
+            
         }
     }
 
