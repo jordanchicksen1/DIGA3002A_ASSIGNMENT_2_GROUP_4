@@ -5538,7 +5538,7 @@ MonoBehaviour:
   charmDuration: 1.5
   rCooldown: 5
   rAbilityActive: 0
-  dashDistance: 1
+  dashDistance: 7
   dashDuration: 0.3
   maxDashes: 3
   timeBetweenDashes: 1
