@@ -16,6 +16,7 @@ public class Player : MonoBehaviour
     public float playerRotationSpeed;
     private CharacterController characterController;
     private Abilities abilities;
+    private bool rUIHold;
 
     //pause stuff
     public bool isPaused = false;
@@ -55,8 +56,10 @@ public class Player : MonoBehaviour
 
         playerInput.Player.WAction.performed += ctx => WAction();
 
+        playerInput.Player.EAction.performed += ctx => AbiltityTarget();
         playerInput.Player.EAction.performed += ctx => EAction();
 
+        playerInput.Player.RAction.performed += ctx => AbiltityTarget();
         playerInput.Player.RAction.performed += ctx => RAction();
     }
 
@@ -104,6 +107,15 @@ public class Player : MonoBehaviour
             {
                 Debug.Log("Right-click not on target layer");
             }
+        }
+    }
+
+    public void ClearMovementTarget()
+    {
+        target = null;
+        if (moveTarget != null && moveTarget.scene.IsValid())
+        {
+            Destroy(moveTarget);
         }
     }
 
@@ -168,6 +180,7 @@ public class Player : MonoBehaviour
             wActionRepresentation.Play();
             canUseWAction = false;
             StartCoroutine(GiveBackWBar());
+            abilities.CastWAbility();
         }
     }
 
@@ -179,6 +192,7 @@ public class Player : MonoBehaviour
             eActionRepresentation.Play();
             canUseEAction = false;
             StartCoroutine(GiveBackEBar());
+            abilities.CastEAbility();
         }
     }
 
@@ -186,10 +200,17 @@ public class Player : MonoBehaviour
     {
         if (isPaused == false && canUseRAction == true)
         {
-            rActionUI.UseRBar();
-            rActionRepresentation.Play();
-            canUseRAction = false;
-            StartCoroutine(GiveBackRBar());
+            // Only trigger UI cooldown on first dash
+            if (!abilities.rAbilityActive)
+            {
+                if (!rUIHold)
+                rActionUI.UseRBar();
+                rActionRepresentation.Play();
+                //canUseRAction = false;
+                StartCoroutine(GiveBackRBar());
+            }
+
+            abilities.CastRAbility(!abilities.rAbilityActive);
         }
     }
 
@@ -330,11 +351,16 @@ public class Player : MonoBehaviour
 
     public IEnumerator GiveBackRBar()
     {
-        yield return new WaitForSeconds(0f);
-        rActionUI.shouldFillRBar = true;
-        yield return new WaitForSeconds(artCooldownTime);
-        canUseRAction = true;
-        rActionUI.shouldFillRBar = false;
+        if (!rUIHold)
+        {
+            yield return new WaitForSeconds(0f);
+            rActionUI.shouldFillRBar = true;
+            rUIHold = true;
+            yield return new WaitForSeconds(abilities.rCooldown);
+            canUseRAction = true;
+            rActionUI.shouldFillRBar = false;
+            rUIHold = false;
+        }
     }
 }
 

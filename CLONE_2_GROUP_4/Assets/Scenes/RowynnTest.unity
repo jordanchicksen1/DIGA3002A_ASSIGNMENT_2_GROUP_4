@@ -347,7 +347,7 @@ GameObject:
   - component: {fileID: 245341317}
   - component: {fileID: 245341316}
   - component: {fileID: 245341315}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Cube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5522,7 +5522,27 @@ MonoBehaviour:
   damage: 30
   damageLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 1024
+  foxFirePrefab: {fileID: 6735494031553617864, guid: 27955f87c44296e459a1165c612521e3, type: 3}
+  speedBoost: 1.5
+  speedBoostDuration: 1.5
+  foxFireCount: 3
+  foxFireDamage: 20
+  foxFireDetectionRange: 5
+  foxFireSpeed: 8
+  foxFireDuration: 4
+  charmPrefab: {fileID: 6735494031553617864, guid: 4bd909d734ce11447b9cbd6ff5242689, type: 3}
+  charmSpeed: 10
+  charmMaxRange: 12
+  charmDamage: 10
+  charmDuration: 1.5
+  rCooldown: 5
+  rAbilityActive: 0
+  dashDistance: 1
+  dashDuration: 0.3
+  maxDashes: 3
+  timeBetweenDashes: 1
+  dashEffectPrefab: {fileID: 0}
 --- !u!198 &2121726494 stripped
 ParticleSystem:
   m_CorrespondingSourceObject: {fileID: 1398466052193757927, guid: 8866a1a30611a1b4188dc673fa5cc4a1, type: 3}
