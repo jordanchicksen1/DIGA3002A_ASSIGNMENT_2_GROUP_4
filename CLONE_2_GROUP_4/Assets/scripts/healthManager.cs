@@ -5,10 +5,10 @@ using UnityEngine.UI;
 
 public class healthManager : MonoBehaviour
 {
-    public float maxHealth = 10f;
+    public float maxHealth = 100f;
     public float currentHealth;
     public Image healthBar;
-    public TextMeshProUGUI healthText;
+   //ublic TextMeshProUGUI healthText;
     public GameObject gameOverScreen;
 
 
@@ -21,7 +21,7 @@ public class healthManager : MonoBehaviour
 
     public void Update()
     {
-        if (currentHealth == 0)
+        if (currentHealth <= 0)
         {
             gameOverScreen.SetActive(true);
             Cursor.lockState = CursorLockMode.None;
@@ -32,6 +32,7 @@ public class healthManager : MonoBehaviour
     public void updateHealth(float amount)
     {
         currentHealth += amount;
+
         updateHealthBar();
 
     }
@@ -40,23 +41,43 @@ public class healthManager : MonoBehaviour
     {
         float targetFillAmount = currentHealth / maxHealth;
         healthBar.fillAmount = targetFillAmount;
+       //ealthText.text = currentHealth.ToString();
     }
 
     [ContextMenu("PlayerHit")]
     public void PlayerHit()
     {
-        currentHealth = currentHealth - 1f;
+        currentHealth = currentHealth - 10f;
         updateHealthBar();
-        healthText.text = currentHealth.ToString();
+      //healthText.text = currentHealth.ToString();
 
     }
+
+    [ContextMenu("PlayerHitMore")]
+    public void PlayerHitMore()
+    {
+        currentHealth = currentHealth - 30f;
+        updateHealthBar();
+        //healthText.text = currentHealth.ToString();
+
+    }
+
+    [ContextMenu("Damage Zone")]
+    public void DamageZoneHit()
+    {
+        currentHealth = currentHealth - 0.1f;
+        updateHealthBar();
+       //ealthText.text = currentHealth.ToString();
+
+    }
+
 
     [ContextMenu("PlayerHeal")]
     public void PlayerHeal()
     {
-        currentHealth = currentHealth + 1f;
+        currentHealth = currentHealth + 10f;
         updateHealthBar();
-        healthText.text = currentHealth.ToString();
+       //ealthText.text = currentHealth.ToString();
 
     }
 }

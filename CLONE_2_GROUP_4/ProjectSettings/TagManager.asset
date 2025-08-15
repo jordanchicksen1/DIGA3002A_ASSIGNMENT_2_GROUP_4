@@ -12,6 +12,16 @@ TagManager:
   - Enemy2DetectionTrigger
   - Enemy3DetectionTrigger
   - Enemy4DetectionTrigger
+  - Laser
+  - HealthManager
+  - Enemy4
+  - Enemy3
+  - Enemy2
+  - Enemy1
+  - Enemy5
+  - DamageZone
+  - Enemy5DetectionTrigger
+  - LaserLine
   layers:
   - Default
   - TransparentFX
