@@ -209,6 +209,14 @@ public class PlayersPersistence : MonoBehaviour
             Destroy(other.gameObject);
             Debug.Log("player got hit");
             StartCoroutine(ProjectileIssue());
+
+        }
+
+        if (other.tag == "LaserLine" && hasBeenHit == false)
+        {
+            healthManager.PlayerHit();
+            hasBeenHit = true;
+            StartCoroutine(ProjectileIssue());
         }
 
     }
@@ -279,6 +287,8 @@ public class PlayersPersistence : MonoBehaviour
         {
             healthManager.DamageZoneHit();
         }
+
+        
     }
 
     private void OnTriggerExit(Collider other)

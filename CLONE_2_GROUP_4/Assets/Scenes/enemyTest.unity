@@ -213,6 +213,10 @@ PrefabInstance:
       value: 781.634
       objectReference: {fileID: 0}
     - target: {fileID: 3673575256483937999, guid: 9f0bdc3780db7384a9ef213768757d0b, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 12.357136
+      objectReference: {fileID: 0}
+    - target: {fileID: 3673575256483937999, guid: 9f0bdc3780db7384a9ef213768757d0b, type: 3}
       propertyPath: m_LocalPosition.z
       value: 766.87164
       objectReference: {fileID: 0}
@@ -572,6 +576,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 5158841594983381331, guid: 0e767b6a33d282944b4e968872984911, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5158841594983381331, guid: 0e767b6a33d282944b4e968872984911, type: 3}
+      propertyPath: m_TagString
+      value: LaserLine
+      objectReference: {fileID: 0}
     - target: {fileID: 6752897139848139844, guid: 0e767b6a33d282944b4e968872984911, type: 3}
       propertyPath: m_Name
       value: enemy3

@@ -21,7 +21,7 @@ public class healthManager : MonoBehaviour
 
     public void Update()
     {
-        if (currentHealth == 0)
+        if (currentHealth <= 0)
         {
             gameOverScreen.SetActive(true);
             Cursor.lockState = CursorLockMode.None;
@@ -50,6 +50,15 @@ public class healthManager : MonoBehaviour
         currentHealth = currentHealth - 10f;
         updateHealthBar();
       //healthText.text = currentHealth.ToString();
+
+    }
+
+    [ContextMenu("PlayerHitMore")]
+    public void PlayerHitMore()
+    {
+        currentHealth = currentHealth - 30f;
+        updateHealthBar();
+        //healthText.text = currentHealth.ToString();
 
     }
 

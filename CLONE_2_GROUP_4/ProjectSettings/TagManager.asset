@@ -21,6 +21,7 @@ TagManager:
   - Enemy5
   - DamageZone
   - Enemy5DetectionTrigger
+  - LaserLine
   layers:
   - Default
   - TransparentFX

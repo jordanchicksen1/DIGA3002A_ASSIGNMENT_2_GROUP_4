@@ -149,6 +149,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1305963784546236491}
+  - component: {fileID: 3462127465639952691}
   m_Layer: 0
   m_Name: enemy1HealthManager
   m_TagString: Untagged
@@ -171,6 +172,22 @@ Transform:
   m_Children: []
   m_Father: {fileID: 3032591466347806930}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &3462127465639952691
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2756021664894342864}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 14a516e8860466d4690d08ad515e96ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 40
+  currentHealth: 0
+  healthBar: {fileID: 8631499941944746856}
+  enemyWhole: {fileID: 7456306260911841596}
 --- !u!1 &4269144193395337308
 GameObject:
   m_ObjectHideFlags: 0
@@ -308,7 +325,7 @@ Rigidbody:
     m_Bits: 0
   m_ImplicitCom: 1
   m_ImplicitTensor: 1
-  m_UseGravity: 0
+  m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 80
@@ -608,3 +625,14 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 107557605044140279, guid: 9e4245f9edbda8043b55662ebb042d3e, type: 3}
   m_PrefabInstance: {fileID: 7954761984720486436}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &8631499941944746856 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1850348972130968396, guid: 9e4245f9edbda8043b55662ebb042d3e, type: 3}
+  m_PrefabInstance: {fileID: 7954761984720486436}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

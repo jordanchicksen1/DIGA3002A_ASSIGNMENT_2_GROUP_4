@@ -1,9 +1,9 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-public class enemy1Health : MonoBehaviour
+public class enemy2Health : MonoBehaviour
 {
-    public float maxHealth = 40f;
+    public float maxHealth = 50f;
     public float currentHealth;
     public Image healthBar;
     //ublic TextMeshProUGUI healthText;
@@ -60,7 +60,4 @@ public class enemy1Health : MonoBehaviour
         currentHealth = currentHealth - 30f;
         updateHealthBar();
     }
-
-
-
 }
