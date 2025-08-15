@@ -29,7 +29,8 @@ public class Abilities : MonoBehaviour
     [SerializeField] private float charmSpeed = 12f;
     [SerializeField] private float charmMaxRange = 8f;
     [SerializeField] private float charmDamage = 15f;
-    [SerializeField] private float charmDuration = 1.5f; // Duration of charm effect
+    [SerializeField] private float charmDuration = 1.5f;
+    [SerializeField] private float charmSlow = 0.5f;
 
     [Header("R Ability - Spirit Rush")]
     public float rCooldown = 30f;
@@ -48,12 +49,12 @@ public class Abilities : MonoBehaviour
     private CharacterController characterController;
 
 
-    private Player player;
+    private PlayersPersistence player;
 
     private void Awake()
     {
         characterController = GetComponent<CharacterController>();
-        player = GetComponent<Player>();
+        player = GetComponent<PlayersPersistence>();
         if (player != null)
         {
             originalSpeed = player.playerSpeed;
@@ -62,7 +63,7 @@ public class Abilities : MonoBehaviour
 
     private void Start()
     {
-        player = GetComponent<Player>();
+        player = GetComponent<PlayersPersistence>();
     }
 
     void Update()
@@ -87,7 +88,7 @@ public class Abilities : MonoBehaviour
         GameObject charm = Instantiate(charmPrefab, transform.position, Quaternion.identity);
         CharmProjectile charmScript = charm.GetComponent<CharmProjectile>();
 
-        charmScript.Initialize(transform, direction, charmSpeed, charmMaxRange, charmDamage, damageLayers);
+        charmScript.Initialize(transform, direction, charmSpeed, charmMaxRange, charmDamage, charmDuration, charmSlow, damageLayers);
     }
 
     public void CastWAbility()

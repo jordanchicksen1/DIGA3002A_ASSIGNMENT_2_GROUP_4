@@ -53,7 +53,6 @@ public class Player : MonoBehaviour
         playerInput.Player.QAction.performed += ctx => AbiltityTarget();
         playerInput.Player.QAction.performed += ctx => QAction();
         
-
         playerInput.Player.WAction.performed += ctx => WAction();
 
         playerInput.Player.EAction.performed += ctx => AbiltityTarget();

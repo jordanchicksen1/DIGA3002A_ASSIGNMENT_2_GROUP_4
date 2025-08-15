@@ -54,7 +54,7 @@ public class OrbProjectile : MonoBehaviour
         }
     }
 
-    void OnTriggerEnter2D(Collider2D other)
+    void OnTriggerEnter(Collider other)
     {
         // Check if the collider is on a damageable layer
         if (((1 << other.gameObject.layer) & damageLayers) != 0)
@@ -62,10 +62,12 @@ public class OrbProjectile : MonoBehaviour
             // Apply damage logic
             if (!isReturning && !hasHitOnForward)
             {
+                other.GetComponent<EnemyHealth>().EnemyHit(damage);
                 hasHitOnForward = true;
             }
             else if (isReturning && !hasHitOnReturn)
             {
+                other.GetComponent<EnemyHealth>().EnemyHit(damage);
                 hasHitOnReturn = true;
             }
         }

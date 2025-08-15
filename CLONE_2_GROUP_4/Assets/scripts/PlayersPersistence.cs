@@ -18,11 +18,14 @@ public class PlayersPersistence : MonoBehaviour
     //player variables
     public GameObject moveTarget;
     public Transform target;
+    public Transform abilityTarget;
     public LayerMask targetLayer;
 
     public float playerSpeed;
     public float playerRotationSpeed;
     private CharacterController characterController;
+    private Abilities abilities;
+    private bool rUIHold;
 
     //pause stuff
     public bool isPaused = false;
@@ -57,12 +60,15 @@ public class PlayersPersistence : MonoBehaviour
 
         playerInput.Player.Pause.performed += ctx => Pause();
 
+        playerInput.Player.QAction.performed += ctx => AbiltityTarget();
         playerInput.Player.QAction.performed += ctx => QAction();
 
         playerInput.Player.WAction.performed += ctx => WAction();
 
+        playerInput.Player.EAction.performed += ctx => AbiltityTarget();
         playerInput.Player.EAction.performed += ctx => EAction();
 
+        playerInput.Player.RAction.performed += ctx => AbiltityTarget();
         playerInput.Player.RAction.performed += ctx => RAction();
     }
 
@@ -70,6 +76,7 @@ public class PlayersPersistence : MonoBehaviour
     public void Awake()
     {
         characterController = GetComponent<CharacterController>();
+        abilities = GetComponent<Abilities>();
 
         confirmEnd = InputSystem.actions.FindAction("ConfirmEnd");
         DontDestroyOnLoad(this.gameObject); //DontDestroyOnLoad for persistence
@@ -131,6 +138,36 @@ public class PlayersPersistence : MonoBehaviour
             }
         }
     }
+    public void ClearMovementTarget()
+    {
+        target = null;
+        if (moveTarget != null && moveTarget.scene.IsValid())
+        {
+            Destroy(moveTarget);
+        }
+    }
+
+    public void AbiltityTarget()
+    {
+        if (isPaused == false)
+        {
+            Ray ray = Camera.main.ScreenPointToRay(Mouse.current.position.ReadValue());
+            RaycastHit hit;
+            if (Physics.Raycast(ray, out hit, Mathf.Infinity, targetLayer))
+            {
+
+
+                GameObject spawned = Instantiate(moveTarget, hit.point, Quaternion.identity);
+                abilityTarget = spawned.transform.Find("thePoint");
+                Debug.Log("Spawned at: " + hit.point);
+                Destroy(spawned, 10f);
+            }
+            else
+            {
+                Debug.Log("Right-click not on target layer");
+            }
+        }
+    }
 
     public void Pause()
     {
@@ -153,12 +190,13 @@ public class PlayersPersistence : MonoBehaviour
 
     public void QAction()
     {
-        if(isPaused == false && canUseQAction == true)
+        if (isPaused == false && canUseQAction == true)
         {
             qActionUI.UseQBar();
             qActionRepresentation.Play();
             canUseQAction = false;
             StartCoroutine(GiveBackQBar());
+            abilities.CastQAbility();
         }
     }
 
@@ -170,6 +208,7 @@ public class PlayersPersistence : MonoBehaviour
             wActionRepresentation.Play();
             canUseWAction = false;
             StartCoroutine(GiveBackWBar());
+            abilities.CastWAbility();
         }
     }
 
@@ -181,6 +220,7 @@ public class PlayersPersistence : MonoBehaviour
             eActionRepresentation.Play();
             canUseEAction = false;
             StartCoroutine(GiveBackEBar());
+            abilities.CastEAbility();
         }
     }
 
@@ -188,10 +228,17 @@ public class PlayersPersistence : MonoBehaviour
     {
         if (isPaused == false && canUseRAction == true)
         {
-            rActionUI.UseRBar();
-            rActionRepresentation.Play();
-            canUseRAction = false;
-            StartCoroutine(GiveBackRBar());
+            // Only trigger UI cooldown on first dash
+            if (!abilities.rAbilityActive)
+            {
+                if (!rUIHold)
+                    rActionUI.UseRBar();
+                rActionRepresentation.Play();
+                //canUseRAction = false;
+                StartCoroutine(GiveBackRBar());
+            }
+
+            abilities.CastRAbility(!abilities.rAbilityActive);
         }
     }
 
@@ -381,11 +428,16 @@ public class PlayersPersistence : MonoBehaviour
 
     public IEnumerator GiveBackRBar()
     {
-        yield return new WaitForSeconds(0f);
-        rActionUI.shouldFillRBar = true;
-        yield return new WaitForSeconds(artCooldownTime);
-        canUseRAction = true;
-        rActionUI.shouldFillRBar = false;
+        if (!rUIHold)
+        {
+            yield return new WaitForSeconds(0f);
+            rActionUI.shouldFillRBar = true;
+            rUIHold = true;
+            yield return new WaitForSeconds(abilities.rCooldown);
+            canUseRAction = true;
+            rActionUI.shouldFillRBar = false;
+            rUIHold = false;
+        }
     }
 
     public IEnumerator ProjectileIssue()

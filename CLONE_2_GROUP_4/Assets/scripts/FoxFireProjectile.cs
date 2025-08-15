@@ -111,11 +111,12 @@ public class FoxFireProjectile : MonoBehaviour
         Vector3 direction = (currentTarget.position - transform.position).normalized;
         transform.position += direction * speed * Time.deltaTime;
 
-        if (Vector3.Distance(transform.position, currentTarget.position) < 0.5f)
+        /*if (Vector3.Distance(transform.position, currentTarget.position) < 0.5f)
         {
             DealDamage();
             Destroy(gameObject);
         }
+        */
     }
 
     private void ReturnToPlayer()
@@ -131,11 +132,21 @@ public class FoxFireProjectile : MonoBehaviour
         }
     }
 
+    void OnTriggerEnter(Collider other)
+    {
+        // Check if the collider is on a damageable layer
+        if (((1 << other.gameObject.layer) & enemyLayers) != 0)
+        {        
+            other.GetComponent<EnemyHealth>().EnemyHit(damage);
+            Destroy(gameObject);
+        }
+    }
+
     private void DealDamage()
     {
         if (currentTarget != null)
         {
-           
+            currentTarget.GetComponent<EnemyHealth>().EnemyHit(damage);
         }
     }
 }
