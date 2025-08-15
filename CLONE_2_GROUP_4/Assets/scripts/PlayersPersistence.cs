@@ -43,6 +43,10 @@ public class PlayersPersistence : MonoBehaviour
     public rActionUI rActionUI;
     public bool canUseRAction = true;
     public ParticleSystem rActionRepresentation;
+
+    //health stuff
+    public healthManager healthManager;
+    public bool hasBeenHit = false;
     private void OnEnable()
     {
         var playerInput = new Controls();
@@ -197,6 +201,16 @@ public class PlayersPersistence : MonoBehaviour
         {
             Destroy(other.gameObject);
         }
+
+        if(other.tag == "EnemyProjectile" && hasBeenHit == false)
+        {
+            hasBeenHit = true;
+            healthManager.PlayerHit();
+            Destroy(other.gameObject);
+            Debug.Log("player got hit");
+            StartCoroutine(ProjectileIssue());
+        }
+
     }
     
     private void OnTriggerStay(Collider other)
@@ -259,6 +273,11 @@ public class PlayersPersistence : MonoBehaviour
                 Debug.Log("is in the trigger4");
             }
 
+        }
+
+        if(other.tag == "DamageZone")
+        {
+            healthManager.DamageZoneHit();
         }
     }
 
@@ -357,6 +376,12 @@ public class PlayersPersistence : MonoBehaviour
         yield return new WaitForSeconds(artCooldownTime);
         canUseRAction = true;
         rActionUI.shouldFillRBar = false;
+    }
+
+    public IEnumerator ProjectileIssue()
+    {
+        yield return new WaitForSeconds(0.01f);
+        hasBeenHit = false;
     }
 }
 

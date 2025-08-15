@@ -374,7 +374,7 @@ RectTransform:
   m_GameObject: {fileID: 494957091353034864}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.8, y: 0.8, z: 0.8}
+  m_LocalScale: {x: 0.7, y: 0.7, z: 0.7}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 5112008278747759810}
@@ -470,7 +470,7 @@ MonoBehaviour:
   currentEBar: 0
   eBarPic: {fileID: 2464286110060265496}
   shouldFillEBar: 0
-  player: {fileID: 0}
+  playerScript: {fileID: 0}
 --- !u!1 &1311763504782261712
 GameObject:
   m_ObjectHideFlags: 0
@@ -590,10 +590,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ad6592faadf3e0045b97151c70b71cde, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 10
+  maxHealth: 100
   currentHealth: 0
   healthBar: {fileID: 689215069032532324}
-  healthText: {fileID: 1501414109807561421}
   gameOverScreen: {fileID: 4386786576918183849}
 --- !u!1 &1561260792344495081
 GameObject:
@@ -1892,7 +1891,7 @@ MonoBehaviour:
   currentQBar: 0
   qBarPic: {fileID: 125411497240126077}
   shouldFillQBar: 0
-  player: {fileID: 0}
+  playerScript: {fileID: 0}
 --- !u!1 &5596216573869354110
 GameObject:
   m_ObjectHideFlags: 0
@@ -2380,7 +2379,7 @@ MonoBehaviour:
   currentWBar: 0
   wBarPic: {fileID: 2415547885846123679}
   shouldFillWBar: 0
-  player: {fileID: 0}
+  playerScript: {fileID: 0}
 --- !u!1 &6635478671831581015
 GameObject:
   m_ObjectHideFlags: 0
@@ -2504,7 +2503,7 @@ MonoBehaviour:
   currentRBar: 0
   rBarPic: {fileID: 7451873940667864735}
   shouldFillRBar: 0
-  player: {fileID: 0}
+  playerScript: {fileID: 0}
 --- !u!1 &6844076714913225137
 GameObject:
   m_ObjectHideFlags: 0
@@ -2900,7 +2899,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &884615896046124845
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2948,7 +2947,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: '10
+  m_text: '100
 
 '
   m_isRightToLeft: 0
@@ -2977,8 +2976,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 50
-  m_fontSizeBase: 50
+  m_fontSize: 35
+  m_fontSizeBase: 35
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -3183,7 +3182,7 @@ Transform:
   m_GameObject: {fileID: 8648906561546826996}
   serializedVersion: 2
   m_LocalRotation: {x: 0.45366114, y: 0, z: 0, w: 0.89117426}
-  m_LocalPosition: {x: 7.78626, y: 12.357136, z: 0.1255517}
+  m_LocalPosition: {x: -5.4206543, y: -58.012867, z: 115.59827}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -3581,12 +3580,24 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 6844076714913225137}
     - target: {fileID: 2694890547589919366, guid: 349e5e096942a4e4ebc21116d849a1b8, type: 3}
+      propertyPath: healthManager
+      value: 
+      objectReference: {fileID: 6761769062359723517}
+    - target: {fileID: 2694890547589919366, guid: 349e5e096942a4e4ebc21116d849a1b8, type: 3}
       propertyPath: levelSelection
       value: 
       objectReference: {fileID: 5735982234715147109}
+    - target: {fileID: 3899819260710924779, guid: 349e5e096942a4e4ebc21116d849a1b8, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4956066678860622992, guid: 349e5e096942a4e4ebc21116d849a1b8, type: 3}
       propertyPath: m_Name
       value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 5706618488287433708, guid: 349e5e096942a4e4ebc21116d849a1b8, type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5729819599565960056, guid: 349e5e096942a4e4ebc21116d849a1b8, type: 3}
       propertyPath: m_LocalPosition.x
@@ -3628,7 +3639,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 7541962061104618853, guid: 349e5e096942a4e4ebc21116d849a1b8, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 3899819260710924779, guid: 349e5e096942a4e4ebc21116d849a1b8, type: 3}
+    - {fileID: 7541962061104618853, guid: 349e5e096942a4e4ebc21116d849a1b8, type: 3}
+    - {fileID: 5706618488287433708, guid: 349e5e096942a4e4ebc21116d849a1b8, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
