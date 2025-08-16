@@ -5,14 +5,11 @@ public class enemy4 : MonoBehaviour
 {
     public bool isInEnemy4Range = false;
 
-  
-
     //looking and moving towards player
     public float enemySpeed = 2f;
     private Transform playerTransform;
     public Transform stayingPoint;
     
-
     //shooting bullet at player
     public GameObject bullet;
     public Transform spawnPoint;

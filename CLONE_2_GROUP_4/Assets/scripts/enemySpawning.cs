@@ -4,7 +4,9 @@ using UnityEngine;
 public class enemySpawning : MonoBehaviour
 {
     public List<GameObject> enemyQueue = new List<GameObject>();
-    private int listSize;
+    public List <Transform> spawnPoints = new List<Transform>();
+    private int listSizeE;
+    private int listSizeS;
     private int index;
     public int enemiesKilled = 0;
     public int killGoal = 3;
@@ -14,7 +16,8 @@ public class enemySpawning : MonoBehaviour
 
     void Start()
     {
-        listSize = enemyQueue.Count;
+        listSizeE = enemyQueue.Count;
+        listSizeS = spawnPoints.Count;
         index = 0;
         SpawnBatch();
     }
@@ -30,14 +33,26 @@ public class enemySpawning : MonoBehaviour
 
     void SpawnBatch()
     {
+        //Temporary list to use number representation of spawns that are still available
+        List<int> availableSpawns = new List<int>();
+        for (int i = 0; i < listSizeS; i++)
+        {
+            availableSpawns.Add(i);
+        }
+
         for (int i = 0; i < enemyCount; i++)
         {
-            if (index >= listSize)
+            if (index >= listSizeE || availableSpawns.Count == 0)
                 return;
+            
+            int randIndex = Random.Range(0, availableSpawns.Count);
+            int spawnPointIndex = availableSpawns[randIndex];
 
-            Instantiate(enemyQueue[index], transform.position, Quaternion.identity);
+            Instantiate(enemyQueue[index], spawnPoints[spawnPointIndex].transform.position, Quaternion.identity);
             index++;
+            availableSpawns.RemoveAt(randIndex); //Remove a spawnpoint if it was used
         }
     }
+
 }
 
