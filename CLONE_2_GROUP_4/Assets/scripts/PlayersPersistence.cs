@@ -99,21 +99,14 @@ public class PlayersPersistence : MonoBehaviour
             transform.position = Vector3.MoveTowards(transform.position, target.position, playerSpeed * Time.deltaTime);
         }
         
-        //Confirming
-        if (confirmEnd.WasPressedThisFrame())
+        //Confirming UI
+        if (!levelDone)
         {
-            if (!levelDone)
-            {
-                instruction.SetActive(false);
-                levelDone = true;
-                levelSelection.SetActive(true);
-            } else if (levelDone)
-            {
-                instruction.SetActive(true);
-                levelDone = false;
-                levelSelection.SetActive(false);
-            }
-            
+            levelSelection.SetActive(false);
+        }
+        else
+        {
+            levelSelection.SetActive(true);
         }
     }
 
