@@ -3,6 +3,10 @@ using UnityEngine.UI;
 
 public class EnemyHealth : MonoBehaviour
 {
+    
+    //Variables to increment the killcount in a level
+    public GameObject spawnerScript;
+    
     public float maxHealth = 50f;
     public float currentHealth;
     public Image healthBar;
@@ -14,6 +18,8 @@ public class EnemyHealth : MonoBehaviour
 
     public void Start()
     {
+        spawnerScript = GameObject.Find("EnemySpawner");
+        
         currentHealth = maxHealth;
         updateHealthBar();
 
@@ -43,6 +49,7 @@ public class EnemyHealth : MonoBehaviour
     {
         if (currentHealth <= 0)
         {
+            spawnerScript.GetComponent<enemySpawning>().enemiesKilled += 1;
             Destroy(enemyWhole);
         }
     }

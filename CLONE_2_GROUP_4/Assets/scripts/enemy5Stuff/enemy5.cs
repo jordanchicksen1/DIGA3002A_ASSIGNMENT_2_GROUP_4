@@ -8,9 +8,7 @@ public class enemy5 : MonoBehaviour
     public float enemySpeed = 8f;
     private Transform playerTransform;
     public Transform stayingPoint;
-
-
-
+    
     public void Start()
     {
         playerTransform = GameObject.FindWithTag("Player").transform;

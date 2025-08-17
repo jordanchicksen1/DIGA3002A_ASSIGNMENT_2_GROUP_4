@@ -21,15 +21,13 @@ public class scenechanger : MonoBehaviour
 
     public void subLevelLoad(int sub)
     {
+        player.GetComponent<PlayersPersistence>().levelDone = false;
         levelToLoad += "_";
         levelToLoad += sub.ToString();
         Debug.Log(levelToLoad);
         SceneManager.LoadScene(levelToLoad);
         levelToLoad = "";
         player.GetComponent<PlayersPersistence>().currentLayer += 1;
-        player.GetComponent<PlayersPersistence>().levelDone = false;
-        player.GetComponent<PlayersPersistence>().instruction.SetActive(true);
-        player.GetComponent<PlayersPersistence>().levelSelection.SetActive(false);
         levelToLoad = "Layer";
         int currentLayer = player.GetComponent<PlayersPersistence>().currentLayer;
         levelToLoad += (currentLayer+1).ToString();
