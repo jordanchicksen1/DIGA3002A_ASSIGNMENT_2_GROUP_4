@@ -117,7 +117,6 @@ public class PlayersPersistence : MonoBehaviour
         // Check if horizontal velocity exceeds threshold (ignore vertical movement)
         float horizontalVelocity = new Vector3(currentVelocity.x, 0, currentVelocity.z).magnitude;
         bool isRunning = horizontalVelocity > runningThreshold;
-        Debug.Log(animState + " " + animHold + " " + horizontalVelocity + " " + isRunning);
 
         if (isRunning && !animHold)
             animState = 4;
