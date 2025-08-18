@@ -22,7 +22,14 @@ TagManager:
   - DamageZone
   - Enemy5DetectionTrigger
   - LaserLine
-  - Portal
+  - Boss
+  - PointA
+  - PointB
+  - PointC
+  - PointD
+  - PointE
+  - PointF
+  - PointG
   layers:
   - Default
   - TransparentFX
