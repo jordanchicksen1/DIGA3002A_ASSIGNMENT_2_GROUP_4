@@ -42,9 +42,20 @@ public class boss : MonoBehaviour
     public float shootRecoveryTime2;
     public float bulletSpeed;
 
+    //spawning other enemies
+    //spawning other enemies
+    public GameObject spawnedEnemy;
+    public GameObject spawnedEnemy2;
+    public Transform enemySpawnPoint1;
+    public Transform enemySpawnPoint2;
+    public float spawnTime;
+    public float spawnRecoveryTime;
+
+    public GameObject bossHealthBar;
 
     public void Start()
     {
+        
         player = GameObject.FindWithTag("Player").transform;
         originalBossSpeed = bossSpeed;
         StartCoroutine(StartTheDamnBossFight());
@@ -108,6 +119,7 @@ public class boss : MonoBehaviour
         }
 
         //shooting stuff
+        if(startBossFight == true)
         {
             shootTime += Time.deltaTime;
             shootTime2 += Time.deltaTime;
@@ -178,8 +190,23 @@ public class boss : MonoBehaviour
         }
 
         //spawning stuff
+        if(startBossFight == true)
         {
+            spawnTime += Time.deltaTime;
 
+            if (spawnTime > spawnRecoveryTime)
+            {
+                spawnTime = 0;
+                {
+                   var spawnedEnemyFirst =   Instantiate(spawnedEnemy, enemySpawnPoint1.position, enemySpawnPoint1.rotation);
+                   var spawnedEnemySecond = Instantiate(spawnedEnemy2, enemySpawnPoint2.position, enemySpawnPoint2.rotation);
+
+                    Destroy(spawnedEnemyFirst, spawnRecoveryTime);
+                    Destroy(spawnedEnemySecond, spawnRecoveryTime);
+                }
+
+
+            }
         }
 
     }
@@ -279,6 +306,7 @@ public class boss : MonoBehaviour
     {
         yield return new WaitForSeconds(bossStartTime);
         startBossFight = true;
+        bossHealthBar.SetActive(true);
     }
 
     public void DoubleStats()
