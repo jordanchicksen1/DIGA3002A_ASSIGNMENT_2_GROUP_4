@@ -216,54 +216,6 @@ SphereCollider:
   serializedVersion: 3
   m_Radius: 0.5
   m_Center: {x: 0, y: 0, z: 0}
---- !u!1 &4901828659424015574
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1107358372517415517}
-  - component: {fileID: 8474365691087767802}
-  m_Layer: 0
-  m_Name: enemy5HealthManager
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1107358372517415517
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4901828659424015574}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 5645155359614261879}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &8474365691087767802
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4901828659424015574}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a73495e87727626499e0af2950e87330, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  maxHealth: 50
-  currentHealth: 0
-  healthBar: {fileID: 7315591381074867636}
-  enemyWhole: {fileID: 5119613412959521117}
 --- !u!1 &4951379529402786136
 GameObject:
   m_ObjectHideFlags: 0
@@ -278,7 +230,8 @@ GameObject:
   - component: {fileID: 6357572749654123010}
   - component: {fileID: 6840308446252061191}
   - component: {fileID: 6437628864129835522}
-  m_Layer: 0
+  - component: {fileID: 688931461968591920}
+  m_Layer: 10
   m_Name: enemy5Itself
   m_TagString: Enemy5
   m_Icon: {fileID: 0}
@@ -423,6 +376,23 @@ MonoBehaviour:
   isInEnemy5Range: 0
   enemySpeed: 2.5
   stayingPoint: {fileID: 1943823559979339525}
+--- !u!114 &688931461968591920
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4951379529402786136}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d1707ad947fc5414293f1d6ce0695a98, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spawnerScript: {fileID: 0}
+  maxHealth: 50
+  currentHealth: 0
+  healthBar: {fileID: 7315591381074867636}
+  enemyWhole: {fileID: 4951379529402786136}
 --- !u!1 &5119613412959521117
 GameObject:
   m_ObjectHideFlags: 0
@@ -454,7 +424,6 @@ Transform:
   m_Children:
   - {fileID: 4351496466942794722}
   - {fileID: 1943823559979339525}
-  - {fileID: 1107358372517415517}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &7087836543965323681
