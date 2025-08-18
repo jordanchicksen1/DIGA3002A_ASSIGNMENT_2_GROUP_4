@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using UnityEditor;
 using UnityEditor.ShaderGraph;
@@ -8,9 +9,9 @@ public class PlayersPersistence : MonoBehaviour
 {
     //UI stuff for level selects
     public GameObject levelSelection;
-    public GameObject instruction;
+    //public GameObject instruction;
     public bool levelDone = false;
-    private InputAction confirmEnd;
+    //private InputAction confirmEnd;
     
     //Persistent variable testing
     public int currentLayer = 0;
@@ -52,6 +53,7 @@ public class PlayersPersistence : MonoBehaviour
     public bool hasBeenHit = false;
     private void OnEnable()
     {
+        
         var playerInput = new Controls();
 
         playerInput.Player.Enable();
@@ -78,10 +80,9 @@ public class PlayersPersistence : MonoBehaviour
         characterController = GetComponent<CharacterController>();
         abilities = GetComponent<Abilities>();
 
-        confirmEnd = InputSystem.actions.FindAction("ConfirmEnd");
+        //confirmEnd = InputSystem.actions.FindAction("ConfirmEnd");
         DontDestroyOnLoad(this.gameObject); //DontDestroyOnLoad for persistence
     }
-
 
     void Update()
     {
@@ -97,16 +98,6 @@ public class PlayersPersistence : MonoBehaviour
             //move there
             transform.rotation = Quaternion.Slerp(transform.rotation, lookRotation, Time.deltaTime * playerRotationSpeed);
             transform.position = Vector3.MoveTowards(transform.position, target.position, playerSpeed * Time.deltaTime);
-        }
-        
-        //Confirming UI
-        if (!levelDone)
-        {
-            levelSelection.SetActive(false);
-        }
-        else
-        {
-            levelSelection.SetActive(true);
         }
     }
 
@@ -259,6 +250,11 @@ public class PlayersPersistence : MonoBehaviour
             StartCoroutine(ProjectileIssue());
         }
 
+        if (other.tag == "Portal")
+        {
+            levelSelection.SetActive(true);
+        }
+        
     }
     
     private void OnTriggerStay(Collider other)

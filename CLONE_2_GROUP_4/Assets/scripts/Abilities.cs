@@ -8,37 +8,37 @@ public class Abilities : MonoBehaviour
 {
     [Header("Q Ability Settings")]
     [SerializeField] private GameObject orbPrefab;
-    [SerializeField] private float orbSpeed = 10f;
-    [SerializeField] private float maxRange = 7f;
-    [SerializeField] private float damage = 30f;
+    [SerializeField] public float orbSpeed = 10f;
+    [SerializeField] public float maxRange = 7f;
+    [SerializeField] public float damage = 30f;
     [SerializeField] private LayerMask damageLayers;
 
     [Header("W Ability Settings")]
     [SerializeField] private GameObject foxFirePrefab;
-    [SerializeField] private float speedBoost = 1.5f;
-    [SerializeField] private float speedBoostDuration = 1.5f;
-    [SerializeField] private int foxFireCount = 3;
-    [SerializeField] private float foxFireDamage = 20f;
-    [SerializeField] private float foxFireDetectionRange = 5f;
-    [SerializeField] private float foxFireSpeed = 8f;
-    [SerializeField] private float foxFireDuration = 4f; 
+    [SerializeField] public float speedBoost = 1.5f;
+    [SerializeField] public float speedBoostDuration = 1.5f;
+    [SerializeField] public int foxFireCount = 3;
+    [SerializeField] public float foxFireDamage = 20f;
+    [SerializeField] public float foxFireDetectionRange = 5f;
+    [SerializeField] public float foxFireSpeed = 8f;
+    [SerializeField] public float foxFireDuration = 4f; 
     private float originalSpeed;
 
     [Header("E Ability - Charm")]
     [SerializeField] private GameObject charmPrefab;
-    [SerializeField] private float charmSpeed = 12f;
-    [SerializeField] private float charmMaxRange = 8f;
-    [SerializeField] private float charmDamage = 15f;
-    [SerializeField] private float charmDuration = 1.5f;
-    [SerializeField] private float charmSlow = 0.5f;
+    [SerializeField] public float charmSpeed = 12f;
+    [SerializeField] public float charmMaxRange = 8f;
+    [SerializeField] public float charmDamage = 15f;
+    [SerializeField] public float charmDuration = 1.5f;
+    [SerializeField] public float charmSlow = 0.5f;
 
     [Header("R Ability - Spirit Rush")]
     public float rCooldown = 30f;
     public bool rAbilityActive = false;
-    [SerializeField] private float dashDistance = 5f;
-    [SerializeField] private float dashDuration = 0.3f;
-    [SerializeField] private int maxDashes = 3;
-    [SerializeField] private float timeBetweenDashes = 1f;
+    [SerializeField] public float dashDistance = 5f;
+    [SerializeField] public float dashDuration = 0.3f;
+    [SerializeField] public int maxDashes = 3;
+    [SerializeField] public float timeBetweenDashes = 1f;
     [SerializeField] private GameObject dashEffectPrefab;
     private int remainingDashes;
     private bool isDashing = false;

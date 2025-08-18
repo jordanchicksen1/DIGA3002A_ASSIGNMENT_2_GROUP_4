@@ -22,20 +22,36 @@ public class scenechanger : MonoBehaviour
 
     public void upgrade(string stat)
     {
-
+        //Reference to ability script
         Abilities abilities = player.GetComponent<Abilities>();
         
         switch (stat)
         {
             case "Range":
+                abilities.maxRange++;
+                abilities.foxFireDetectionRange++;
+                abilities.charmMaxRange++;
                 break;
             case "Damage":
+                abilities.damage++;
+                abilities.foxFireDamage++;
+                abilities.charmDamage++;
                 break;
             case "Speed":
+                abilities.speedBoost++;
+                abilities.speedBoostDuration++;
+                abilities.dashDistance++;
+                abilities.dashDuration++;
+                abilities.timeBetweenDashes++;
                 break;
             case "ProjSpeed":
+                abilities.orbSpeed++;
+                abilities.foxFireSpeed++;
+                abilities.charmSpeed++;
                 break;
             case "Multi":
+                abilities.foxFireCount++;
+                abilities.maxDashes++;
                 break;
         }
     }
@@ -43,6 +59,7 @@ public class scenechanger : MonoBehaviour
     public void subLevelLoad(int sub)
     {
         player.GetComponent<PlayersPersistence>().levelDone = false;
+        player.GetComponent<PlayersPersistence>().levelSelection.SetActive(false);
         levelToLoad += "_";
         levelToLoad += sub.ToString();
         Debug.Log(levelToLoad);

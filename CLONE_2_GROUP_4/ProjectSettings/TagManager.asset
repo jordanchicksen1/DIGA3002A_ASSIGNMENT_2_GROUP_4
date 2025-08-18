@@ -22,6 +22,7 @@ TagManager:
   - DamageZone
   - Enemy5DetectionTrigger
   - LaserLine
+  - Portal
   layers:
   - Default
   - TransparentFX
