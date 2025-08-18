@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using UnityEditor;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -17,6 +18,26 @@ public class scenechanger : MonoBehaviour
         int currentLayer = player.GetComponent<PlayersPersistence>().currentLayer;
         levelToLoad += (currentLayer+1).ToString();
         Debug.Log(levelToLoad);
+    }
+
+    public void upgrade(string stat)
+    {
+
+        Abilities abilities = player.GetComponent<Abilities>();
+        
+        switch (stat)
+        {
+            case "Range":
+                break;
+            case "Damage":
+                break;
+            case "Speed":
+                break;
+            case "ProjSpeed":
+                break;
+            case "Multi":
+                break;
+        }
     }
 
     public void subLevelLoad(int sub)
