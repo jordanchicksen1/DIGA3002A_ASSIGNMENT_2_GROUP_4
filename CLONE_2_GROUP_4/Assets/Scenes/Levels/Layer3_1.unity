@@ -2008,6 +2008,18 @@ PrefabInstance:
       propertyPath: 'enemyQueue.Array.data[9]'
       value: 
       objectReference: {fileID: 6934234370178249625, guid: 2d9942a9a47982d419aad30f0fd058a4, type: 3}
+    - target: {fileID: 1323372953567304167, guid: 10dcf142c2493294eb087dfd6bfa3b3c, type: 3}
+      propertyPath: 'enemyQueue.Array.data[10]'
+      value: 
+      objectReference: {fileID: 579952237553757384, guid: 82c1a9eb29ad0b440bb342d1d6fc636d, type: 3}
+    - target: {fileID: 1323372953567304167, guid: 10dcf142c2493294eb087dfd6bfa3b3c, type: 3}
+      propertyPath: 'enemyQueue.Array.data[11]'
+      value: 
+      objectReference: {fileID: 579952237553757384, guid: 82c1a9eb29ad0b440bb342d1d6fc636d, type: 3}
+    - target: {fileID: 1323372953567304167, guid: 10dcf142c2493294eb087dfd6bfa3b3c, type: 3}
+      propertyPath: 'enemyQueue.Array.data[12]'
+      value: 
+      objectReference: {fileID: 5916403365419542695, guid: e95890f26d956f84bbfc92740999ba9b, type: 3}
     - target: {fileID: 4167545513995883511, guid: 10dcf142c2493294eb087dfd6bfa3b3c, type: 3}
       propertyPath: m_Name
       value: EnemySpawner
