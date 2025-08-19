@@ -343,54 +343,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 4383958916773776449}
   m_LocalEulerAnglesHint: {x: 0, y: 25, z: 0}
---- !u!1 &6685796039958798845
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 6363374586758263756}
-  - component: {fileID: 2118177167659325740}
-  m_Layer: 0
-  m_Name: enemy4HealthManager
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &6363374586758263756
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6685796039958798845}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 24709389006196872}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2118177167659325740
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6685796039958798845}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3ba0b1916327a2c4988f39413ed35423, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  maxHealth: 70
-  currentHealth: 0
-  healthBar: {fileID: 4572423223431982964}
-  enemyWhole: {fileID: 9060245938754548957}
 --- !u!1 &7114111201008140980
 GameObject:
   m_ObjectHideFlags: 0
@@ -436,7 +388,8 @@ GameObject:
   - component: {fileID: 7749366932323264273}
   - component: {fileID: 1944630942810985791}
   - component: {fileID: 2630249116109184972}
-  m_Layer: 0
+  - component: {fileID: 7088734688165901450}
+  m_Layer: 10
   m_Name: enemy4Itself
   m_TagString: Enemy4
   m_Icon: {fileID: 0}
@@ -594,6 +547,23 @@ Rigidbody:
   m_Interpolate: 1
   m_Constraints: 80
   m_CollisionDetection: 1
+--- !u!114 &7088734688165901450
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7844076974750586408}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d1707ad947fc5414293f1d6ce0695a98, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spawnerScript: {fileID: 0}
+  maxHealth: 70
+  currentHealth: 0
+  healthBar: {fileID: 4572423223431982964}
+  enemyWhole: {fileID: 7844076974750586408}
 --- !u!1 &8809941912309480691
 GameObject:
   m_ObjectHideFlags: 0
@@ -656,7 +626,6 @@ Transform:
   m_Children:
   - {fileID: 6374260628926867283}
   - {fileID: 5512455052567077415}
-  - {fileID: 6363374586758263756}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &584973176549067329
