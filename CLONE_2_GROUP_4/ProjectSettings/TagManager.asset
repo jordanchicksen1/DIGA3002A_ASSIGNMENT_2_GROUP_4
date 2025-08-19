@@ -30,6 +30,7 @@ TagManager:
   - PointE
   - PointF
   - PointG
+  - BossCanvas
   layers:
   - Default
   - TransparentFX
