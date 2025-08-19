@@ -74,7 +74,10 @@ public class EnemyHealth : MonoBehaviour
         {
             if (currentHealth <= 0)
             {
-                spawnerScript.GetComponent<enemySpawning>().enemiesKilled += 1;
+                if (this.gameObject.name != "enemy5")
+                {
+                    spawnerScript.GetComponent<enemySpawning>().enemiesKilled += 1;
+                }
                 Destroy(enemyWhole);
             }
         }
