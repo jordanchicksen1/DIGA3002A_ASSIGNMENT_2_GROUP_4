@@ -10,7 +10,7 @@ public class EnemyHealth : MonoBehaviour
     public float maxHealth = 50f;
     public float currentHealth;
     public Image healthBar;
-    //ublic TextMeshProUGUI healthText;
+    //Public TextMeshProUGUI healthText;
     public GameObject enemyWhole;
     private float baseSpeed;
 

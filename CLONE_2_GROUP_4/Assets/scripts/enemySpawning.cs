@@ -6,6 +6,7 @@ public class enemySpawning : MonoBehaviour
 {
     public List<GameObject> enemyQueue = new List<GameObject>();
     public List <Transform> spawnPoints = new List<Transform>();
+    public GameObject portal;
     public GameObject player;
     private int listSizeE;
     private int listSizeS;
@@ -20,9 +21,11 @@ public class enemySpawning : MonoBehaviour
     void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player");
+        portal = GameObject.FindGameObjectWithTag("Portal");
         listSizeE = enemyQueue.Count;
         listSizeS = spawnPoints.Count;
         index = 0;
+        portal.SetActive(false);
         SpawnBatch();
     }
 
@@ -37,6 +40,7 @@ public class enemySpawning : MonoBehaviour
         if (enemiesKilled == totalKillGoal)
         {
             player.GetComponent<PlayersPersistence>().levelDone = true;
+            portal.SetActive(true);
         }
     }
 
