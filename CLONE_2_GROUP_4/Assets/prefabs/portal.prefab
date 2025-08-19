@@ -822,6 +822,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: portal
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 2f36fae73d539da4cb3e7798c2cc7d28, type: 3}
+      propertyPath: m_TagString
+      value: Portal
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects:
