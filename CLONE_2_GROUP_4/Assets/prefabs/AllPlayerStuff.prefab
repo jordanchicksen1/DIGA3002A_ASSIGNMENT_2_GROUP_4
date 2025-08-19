@@ -722,6 +722,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 0}
+  healthManager: {fileID: 6761769062359723517}
 --- !u!1 &1909213326627617129
 GameObject:
   m_ObjectHideFlags: 0
