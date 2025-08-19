@@ -9,6 +9,7 @@ public class scenechanger : MonoBehaviour
 {
     //Build a scene name string then load that scene
     public GameObject player;
+    public healthManager healthManager;
     private string levelToLoad;
     
     void Start()
@@ -58,12 +59,21 @@ public class scenechanger : MonoBehaviour
 
     public void subLevelLoad(int sub)
     {
+        healthManager.currentHealth = healthManager.maxHealth;
+        healthManager.updateHealthBar();
         player.GetComponent<PlayersPersistence>().levelDone = false;
         player.GetComponent<PlayersPersistence>().levelSelection.SetActive(false);
         levelToLoad += "_";
         levelToLoad += sub.ToString();
         Debug.Log(levelToLoad);
-        SceneManager.LoadScene(levelToLoad);
+        if (levelToLoad.Contains("Layer5"))
+        {
+            SceneManager.LoadScene("Assets/Scenes/Levels/bossRoom.unity");
+        }
+        else
+        {
+            SceneManager.LoadScene(levelToLoad);
+        }
         levelToLoad = "";
         player.GetComponent<PlayersPersistence>().currentLayer += 1;
         levelToLoad = "Layer";
