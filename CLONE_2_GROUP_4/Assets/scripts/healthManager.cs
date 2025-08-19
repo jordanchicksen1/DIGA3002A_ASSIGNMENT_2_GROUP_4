@@ -11,12 +11,14 @@ public class healthManager : MonoBehaviour
    //ublic TextMeshProUGUI healthText;
     public GameObject gameOverScreen;
 
+    public GameObject bossHealthObject;
 
 
     public void Start()
     {
         currentHealth = maxHealth;
         updateHealthBar();
+
     }
 
     public void Update()
@@ -26,6 +28,7 @@ public class healthManager : MonoBehaviour
             gameOverScreen.SetActive(true);
             Cursor.lockState = CursorLockMode.None;
             Cursor.visible = true;
+            
         }
     }
 

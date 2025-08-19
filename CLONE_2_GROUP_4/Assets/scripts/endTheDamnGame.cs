@@ -4,6 +4,7 @@ using UnityEngine.SceneManagement;
 
 public class endTheDamnGame : MonoBehaviour
 {
+    
     public void EndGame()
     {
         StartCoroutine(EndTheDamnGame());
