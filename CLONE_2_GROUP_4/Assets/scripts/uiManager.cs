@@ -1,16 +1,28 @@
 using UnityEngine;
 
+using UnityEngine.SceneManagement;
+
 public class uiManager : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    public PlayersPersistence playersPersistence;
+    public GameObject pauseScreen;
+    public GameObject player;
+   public void QuitMenu()
     {
-        
-    }
+        pauseScreen.SetActive(false);
+        playersPersistence.isPaused = false;
+        Time.timeScale = 1f;
 
-    // Update is called once per frame
-    void Update()
+    }
+    
+    public void Retry()
     {
-        
+        Destroy(player);
+        SceneManager.LoadScene("Hub");
+    }
+    
+    public void QuitGame()
+    {
+        Application.Quit();
     }
 }

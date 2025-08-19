@@ -1,54 +1,5 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &164016332758182287
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 2370557216506538356}
-  - component: {fileID: 4499926058665726264}
-  m_Layer: 0
-  m_Name: bossHealthManager
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &2370557216506538356
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 164016332758182287}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1254924855926352233}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &4499926058665726264
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 164016332758182287}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3090033ae67d16b4db62f2bc80ccafc3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  maxHealth: 500
-  currentHealth: 0
-  healthBar: {fileID: 4987892590449472778}
-  bossWhole: {fileID: 4626236075524923745}
-  endgameScriptGameobject: {fileID: 0}
 --- !u!1 &1227557124758820512
 GameObject:
   m_ObjectHideFlags: 0
@@ -493,7 +444,9 @@ GameObject:
   - component: {fileID: 8564206796673280444}
   - component: {fileID: 7824634804996625693}
   - component: {fileID: 2874253390485193971}
-  m_Layer: 0
+  - component: {fileID: 5433356246703255547}
+  - component: {fileID: 5461862814599153969}
+  m_Layer: 10
   m_Name: bossItself
   m_TagString: Boss
   m_Icon: {fileID: 0}
@@ -653,8 +606,8 @@ MonoBehaviour:
   pE: {fileID: 7029760819661177348}
   pF: {fileID: 5162957209182391907}
   pG: {fileID: 1543970971825821408}
-  bossSpeed: 8
-  originalBossSpeed: 8
+  bossSpeed: 4
+  originalBossSpeed: 4
   bullet: {fileID: 730105276190193827, guid: e034202070662d94990602597d09676a, type: 3}
   shootPoint1: {fileID: 2885113201057709295}
   shootPoint2: {fileID: 1771250007385001695}
@@ -666,7 +619,7 @@ MonoBehaviour:
   shootRecoveryTime: 3
   shootTime2: 0
   shootRecoveryTime2: 5
-  bulletSpeed: 25
+  bulletSpeed: 20
   spawnedEnemy: {fileID: 5119613412959521117, guid: 802323df2482fec4bb44a4988e36e859, type: 3}
   spawnedEnemy2: {fileID: 6752897139848139844, guid: 0e767b6a33d282944b4e968872984911, type: 3}
   enemySpawnPoint1: {fileID: 1457250159910057912}
@@ -674,6 +627,43 @@ MonoBehaviour:
   spawnTime: 0
   spawnRecoveryTime: 20
   bossHealthBar: {fileID: 8757332182414805467}
+--- !u!114 &5433356246703255547
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3218917436323500295}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d1707ad947fc5414293f1d6ce0695a98, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spawnerScript: {fileID: 0}
+  maxHealth: 200
+  currentHealth: 0
+  healthBar: {fileID: 4987892590449472778}
+  enemyWhole: {fileID: 4626236075524923745}
+  boss: {fileID: 0}
+  bossHealth: {fileID: 0}
+--- !u!114 &5461862814599153969
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3218917436323500295}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3090033ae67d16b4db62f2bc80ccafc3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 500
+  currentHealth: 0
+  healthBar: {fileID: 0}
+  bossWhole: {fileID: 0}
+  endgameScriptGameobject: {fileID: 0}
+  enemyHealth: {fileID: 0}
 --- !u!1 &3260283187791003262
 GameObject:
   m_ObjectHideFlags: 0
@@ -1156,7 +1146,6 @@ Transform:
   m_Children:
   - {fileID: 6047101501162042099}
   - {fileID: 7174829787552445590}
-  - {fileID: 2370557216506538356}
   - {fileID: 7933535782053333672}
   - {fileID: 597863431091070197}
   - {fileID: 5858922215353732089}
@@ -1847,7 +1836,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1507447036281308452
 RectTransform:
   m_ObjectHideFlags: 0

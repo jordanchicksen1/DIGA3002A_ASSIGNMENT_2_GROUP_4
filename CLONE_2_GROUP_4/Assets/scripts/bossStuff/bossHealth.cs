@@ -11,6 +11,7 @@ public class bossHealth : MonoBehaviour
     
     public GameObject bossWhole;
     public GameObject endgameScriptGameobject;
+    public EnemyHealth enemyHealth;
 
 
     public void Start()

@@ -14,10 +14,22 @@ public class EnemyHealth : MonoBehaviour
     public GameObject enemyWhole;
     private float baseSpeed;
 
+    //boss stuff
+    public boss boss;
+    public bossHealth bossHealth;
 
+
+    private void Awake()
+    {
+        boss = GetComponent<boss>();
+        bossHealth = GetComponentInChildren<bossHealth>();    
+    }
 
     public void Start()
     {
+        
+        
+
         spawnerScript = GameObject.Find("EnemySpawner");
         
         currentHealth = maxHealth;
@@ -43,14 +55,28 @@ public class EnemyHealth : MonoBehaviour
         {
             baseSpeed = enemyWhole.GetComponent<enemy5>().enemySpeed;
         }
+        else if (enemyWhole.GetComponent<boss>() != null)
+        {
+            baseSpeed = enemyWhole.GetComponent<boss>().bossSpeed;
+        }
     }
 
     public void Update()
     {
-        if (currentHealth <= 0)
+        if (boss != null)
         {
-            spawnerScript.GetComponent<enemySpawning>().enemiesKilled += 1;
-            Destroy(enemyWhole);
+            if (currentHealth <= 0)
+            {
+                bossHealth.currentHealth = currentHealth;
+            }
+        }
+        else if (boss == null)
+        {
+            if (currentHealth <= 0)
+            {
+                spawnerScript.GetComponent<enemySpawning>().enemiesKilled += 1;
+                Destroy(enemyWhole);
+            }
         }
     }
 
@@ -125,6 +151,11 @@ public class EnemyHealth : MonoBehaviour
             enemyWhole.GetComponent<enemy5>().enemySpeed *= charmSpeed;
             Invoke(nameof(ResetSpeed), charmDuration);
         }
+        else if (enemyWhole.GetComponent<boss>() != null)
+        {
+            enemyWhole.GetComponent<boss>().bossSpeed *= charmSpeed;
+            Invoke(nameof(ResetSpeed), charmDuration);
+        }
 
         updateHealthBar();
     }
@@ -152,6 +183,10 @@ public class EnemyHealth : MonoBehaviour
             else if (enemyWhole.GetComponent<enemy5>() != null)
             {
                 enemyWhole.GetComponent<enemy5>().enemySpeed = baseSpeed;
+            }
+            else if (enemyWhole.GetComponent<boss>() != null)
+            {
+                enemyWhole.GetComponent<boss>().bossSpeed = baseSpeed;
             }
         }
     }
