@@ -1759,7 +1759,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -358, y: 0}
+  m_AnchoredPosition: {x: -361, y: 2.0003}
   m_SizeDelta: {x: 270, y: 250}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &4921841450235033158
@@ -1854,6 +1854,18 @@ MonoBehaviour:
           m_IntArgument: 2
           m_FloatArgument: 0
           m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 261863186188085176}
+        m_TargetAssemblyTypeName: scenechanger, Assembly-CSharp
+        m_MethodName: upgrade
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: Damage
           m_BoolArgument: 0
         m_CallState: 2
       - m_Target: {fileID: 8285188341725151395}
@@ -2461,7 +2473,7 @@ Transform:
   m_GameObject: {fileID: 4533177819920858288}
   serializedVersion: 2
   m_LocalRotation: {x: 0.45366114, y: 0, z: 0, w: 0.89117426}
-  m_LocalPosition: {x: 7.78626, y: 12.357136, z: 0.1255517}
+  m_LocalPosition: {x: 781.634, y: 12.227136, z: 763.87164}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2487,7 +2499,7 @@ MonoBehaviour:
   m_StreamingVersion: 20241001
   m_LegacyPriority: 0
   Target:
-    TrackingTarget: {fileID: 0}
+    TrackingTarget: {fileID: 8951431930388048782}
     LookAtTarget: {fileID: 0}
     CustomLookAtTarget: 0
   Lens:
@@ -2672,16 +2684,16 @@ MonoBehaviour:
   m_text: 'Speed Up:
 
 
-    Speed Boost++
+    Speed Boost++;
 
-    Speed Boost Duration++
-
-    Dash Distance++
+    Speed Boost Duration++;
 
     Dash
-    Duration++
+    Distance++;
 
-    Time Between Dashes++
+    Dash Duration++;
+
+    Time Between Dashes++;
 
 
 '
@@ -3050,7 +3062,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &2422231281240695596
 RectTransform:
   m_ObjectHideFlags: 0
@@ -4661,7 +4673,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -37, y: 0}
+  m_AnchoredPosition: {x: -40, y: 0}
   m_SizeDelta: {x: 270, y: 250}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &2059034584460485099
@@ -4758,6 +4770,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 261863186188085176}
+        m_TargetAssemblyTypeName: scenechanger, Assembly-CSharp
+        m_MethodName: upgrade
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: Speed
+          m_BoolArgument: 0
+        m_CallState: 2
       - m_Target: {fileID: 8285188341725151395}
         m_TargetAssemblyTypeName: randomizeButtons, Assembly-CSharp
         m_MethodName: scrambleButtons
@@ -4799,7 +4823,7 @@ Transform:
   m_GameObject: {fileID: 8648906561546826996}
   serializedVersion: 2
   m_LocalRotation: {x: 0.45366114, y: 0, z: 0, w: 0.89117426}
-  m_LocalPosition: {x: 4.8255615, y: -57.73287, z: 111.4256}
+  m_LocalPosition: {x: 781.634, y: 12.227136, z: 763.87164}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -5184,7 +5208,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -689, y: 0}
+  m_AnchoredPosition: {x: -696, y: 2}
   m_SizeDelta: {x: 270, y: 250}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &4899448508362058462
@@ -5281,6 +5305,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 261863186188085176}
+        m_TargetAssemblyTypeName: scenechanger, Assembly-CSharp
+        m_MethodName: upgrade
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: Range
+          m_BoolArgument: 0
+        m_CallState: 2
       - m_Target: {fileID: 8285188341725151395}
         m_TargetAssemblyTypeName: randomizeButtons, Assembly-CSharp
         m_MethodName: scrambleButtons
@@ -5335,15 +5371,15 @@ PrefabInstance:
       objectReference: {fileID: 5735982234715147109}
     - target: {fileID: 8594480051914535298, guid: 724dfe3901ba8ea4bbd296c7fd23c50a, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 183.36505
-      objectReference: {fileID: 0}
-    - target: {fileID: 8594480051914535298, guid: 724dfe3901ba8ea4bbd296c7fd23c50a, type: 3}
-      propertyPath: m_LocalPosition.y
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8594480051914535298, guid: 724dfe3901ba8ea4bbd296c7fd23c50a, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.33
+      objectReference: {fileID: 0}
+    - target: {fileID: 8594480051914535298, guid: 724dfe3901ba8ea4bbd296c7fd23c50a, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -790.75525
+      value: -3
       objectReference: {fileID: 0}
     - target: {fileID: 8594480051914535298, guid: 724dfe3901ba8ea4bbd296c7fd23c50a, type: 3}
       propertyPath: m_LocalRotation.w
