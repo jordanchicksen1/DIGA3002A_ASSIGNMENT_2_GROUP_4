@@ -260,6 +260,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4386786576918183849, guid: 9f0bdc3780db7384a9ef213768757d0b, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4896986025073351740, guid: 9f0bdc3780db7384a9ef213768757d0b, type: 3}
       propertyPath: m_LocalPosition.x
       value: 800.634
@@ -271,6 +275,10 @@ PrefabInstance:
     - target: {fileID: 4896986025073351740, guid: 9f0bdc3780db7384a9ef213768757d0b, type: 3}
       propertyPath: m_LocalPosition.z
       value: 766.87164
+      objectReference: {fileID: 0}
+    - target: {fileID: 5735982234715147109, guid: 9f0bdc3780db7384a9ef213768757d0b, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6357504209934608814, guid: 9f0bdc3780db7384a9ef213768757d0b, type: 3}
       propertyPath: Target.TrackingTarget
