@@ -1080,6 +1080,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 99f7f3e0a0820664e861042f0612c4ea, type: 3}
+--- !u!4 &1391591718 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 6056137474316943920, guid: 99f7f3e0a0820664e861042f0612c4ea, type: 3}
+  m_PrefabInstance: {fileID: 1391591717}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1467706542
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1137,6 +1142,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 99f7f3e0a0820664e861042f0612c4ea, type: 3}
+--- !u!4 &1467706543 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 6056137474316943920, guid: 99f7f3e0a0820664e861042f0612c4ea, type: 3}
+  m_PrefabInstance: {fileID: 1467706542}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1687334363
 GameObject:
   m_ObjectHideFlags: 0
@@ -1405,44 +1415,44 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1323372953567304167, guid: 10dcf142c2493294eb087dfd6bfa3b3c, type: 3}
       propertyPath: spawnPoints.Array.size
-      value: 7
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 1323372953567304167, guid: 10dcf142c2493294eb087dfd6bfa3b3c, type: 3}
       propertyPath: 'enemyQueue.Array.data[0]'
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 6934234370178249625, guid: 2d9942a9a47982d419aad30f0fd058a4, type: 3}
     - target: {fileID: 1323372953567304167, guid: 10dcf142c2493294eb087dfd6bfa3b3c, type: 3}
       propertyPath: 'enemyQueue.Array.data[1]'
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 6934234370178249625, guid: 2d9942a9a47982d419aad30f0fd058a4, type: 3}
     - target: {fileID: 1323372953567304167, guid: 10dcf142c2493294eb087dfd6bfa3b3c, type: 3}
       propertyPath: 'enemyQueue.Array.data[2]'
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 6934234370178249625, guid: 2d9942a9a47982d419aad30f0fd058a4, type: 3}
     - target: {fileID: 1323372953567304167, guid: 10dcf142c2493294eb087dfd6bfa3b3c, type: 3}
       propertyPath: 'enemyQueue.Array.data[3]'
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 6934234370178249625, guid: 2d9942a9a47982d419aad30f0fd058a4, type: 3}
     - target: {fileID: 1323372953567304167, guid: 10dcf142c2493294eb087dfd6bfa3b3c, type: 3}
       propertyPath: 'enemyQueue.Array.data[4]'
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 6934234370178249625, guid: 2d9942a9a47982d419aad30f0fd058a4, type: 3}
     - target: {fileID: 1323372953567304167, guid: 10dcf142c2493294eb087dfd6bfa3b3c, type: 3}
       propertyPath: 'enemyQueue.Array.data[5]'
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 9083954807494158413, guid: 22acf85fea7b18340b9260218811015c, type: 3}
     - target: {fileID: 1323372953567304167, guid: 10dcf142c2493294eb087dfd6bfa3b3c, type: 3}
       propertyPath: 'enemyQueue.Array.data[6]'
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 6934234370178249625, guid: 2d9942a9a47982d419aad30f0fd058a4, type: 3}
     - target: {fileID: 1323372953567304167, guid: 10dcf142c2493294eb087dfd6bfa3b3c, type: 3}
       propertyPath: 'enemyQueue.Array.data[7]'
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 9083954807494158413, guid: 22acf85fea7b18340b9260218811015c, type: 3}
     - target: {fileID: 1323372953567304167, guid: 10dcf142c2493294eb087dfd6bfa3b3c, type: 3}
       propertyPath: 'enemyQueue.Array.data[8]'
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 9083954807494158413, guid: 22acf85fea7b18340b9260218811015c, type: 3}
     - target: {fileID: 1323372953567304167, guid: 10dcf142c2493294eb087dfd6bfa3b3c, type: 3}
       propertyPath: 'enemyQueue.Array.data[9]'
       value: 
@@ -1495,6 +1505,14 @@ PrefabInstance:
       propertyPath: 'spawnPoints.Array.data[6]'
       value: 
       objectReference: {fileID: 307025180}
+    - target: {fileID: 1323372953567304167, guid: 10dcf142c2493294eb087dfd6bfa3b3c, type: 3}
+      propertyPath: 'spawnPoints.Array.data[7]'
+      value: 
+      objectReference: {fileID: 1391591718}
+    - target: {fileID: 1323372953567304167, guid: 10dcf142c2493294eb087dfd6bfa3b3c, type: 3}
+      propertyPath: 'spawnPoints.Array.data[8]'
+      value: 
+      objectReference: {fileID: 1467706543}
     - target: {fileID: 4167545513995883511, guid: 10dcf142c2493294eb087dfd6bfa3b3c, type: 3}
       propertyPath: m_Name
       value: EnemySpawner
