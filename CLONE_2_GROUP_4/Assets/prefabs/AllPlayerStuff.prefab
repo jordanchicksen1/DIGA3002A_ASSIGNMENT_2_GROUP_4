@@ -34,8 +34,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.003, y: -0.004}
-  m_SizeDelta: {x: 398.0178, y: 83.1839}
+  m_AnchoredPosition: {x: -0.8, y: -0.004}
+  m_SizeDelta: {x: 531.377, y: 83.1839}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &2263111626199118225
 CanvasRenderer:
@@ -67,8 +67,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: GAME OVER
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: b07b2f6e07649294bb3dbfa348824503, type: 2}
+  m_sharedMaterial: {fileID: 4525973580906226732, guid: b07b2f6e07649294bb3dbfa348824503, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -722,6 +722,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 0}
+  healthManager: {fileID: 6761769062359723517}
 --- !u!1 &1909213326627617129
 GameObject:
   m_ObjectHideFlags: 0
@@ -922,8 +923,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Quit Game
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: b07b2f6e07649294bb3dbfa348824503, type: 2}
+  m_sharedMaterial: {fileID: 4525973580906226732, guid: b07b2f6e07649294bb3dbfa348824503, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -947,8 +948,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 36
-  m_fontSizeBase: 36
+  m_fontSize: 24
+  m_fontSizeBase: 24
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -1091,8 +1092,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Quit
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: b07b2f6e07649294bb3dbfa348824503, type: 2}
+  m_sharedMaterial: {fileID: 4525973580906226732, guid: b07b2f6e07649294bb3dbfa348824503, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -1116,8 +1117,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 36
-  m_fontSizeBase: 36
+  m_fontSize: 2
+  m_fontSizeBase: 2
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -1759,7 +1760,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -361, y: 2.0003}
+  m_AnchoredPosition: {x: -358, y: 0}
   m_SizeDelta: {x: 270, y: 250}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &4921841450235033158
@@ -1854,18 +1855,6 @@ MonoBehaviour:
           m_IntArgument: 2
           m_FloatArgument: 0
           m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 261863186188085176}
-        m_TargetAssemblyTypeName: scenechanger, Assembly-CSharp
-        m_MethodName: upgrade
-        m_Mode: 5
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: Damage
           m_BoolArgument: 0
         m_CallState: 2
       - m_Target: {fileID: 8285188341725151395}
@@ -2473,7 +2462,7 @@ Transform:
   m_GameObject: {fileID: 4533177819920858288}
   serializedVersion: 2
   m_LocalRotation: {x: 0.45366114, y: 0, z: 0, w: 0.89117426}
-  m_LocalPosition: {x: 781.634, y: 12.227136, z: 763.87164}
+  m_LocalPosition: {x: 7.78626, y: 12.357136, z: 0.1255517}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2499,7 +2488,7 @@ MonoBehaviour:
   m_StreamingVersion: 20241001
   m_LegacyPriority: 0
   Target:
-    TrackingTarget: {fileID: 8951431930388048782}
+    TrackingTarget: {fileID: 0}
     LookAtTarget: {fileID: 0}
     CustomLookAtTarget: 0
   Lens:
@@ -2684,16 +2673,16 @@ MonoBehaviour:
   m_text: 'Speed Up:
 
 
-    Speed Boost++;
+    Speed Boost++
 
-    Speed Boost Duration++;
+    Speed Boost Duration++
+
+    Dash Distance++
 
     Dash
-    Distance++;
+    Duration++
 
-    Dash Duration++;
-
-    Time Between Dashes++;
+    Time Between Dashes++
 
 
 '
@@ -3062,7 +3051,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &2422231281240695596
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3252,8 +3241,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -841.1, y: 489.9}
-  m_SizeDelta: {x: 224.8877, y: 83.1839}
+  m_AnchoredPosition: {x: -759.90955, y: 489.9}
+  m_SizeDelta: {x: 387.2685, y: 83.1839}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &242968151101216182
 CanvasRenderer:
@@ -3285,8 +3274,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Paused
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: b07b2f6e07649294bb3dbfa348824503, type: 2}
+  m_sharedMaterial: {fileID: 4525973580906226732, guid: b07b2f6e07649294bb3dbfa348824503, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -3470,8 +3459,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Retry
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: b07b2f6e07649294bb3dbfa348824503, type: 2}
+  m_sharedMaterial: {fileID: 4525973580906226732, guid: b07b2f6e07649294bb3dbfa348824503, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -3495,8 +3484,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 36
-  m_fontSizeBase: 36
+  m_fontSize: 24
+  m_fontSizeBase: 24
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -4411,8 +4400,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: X
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: b07b2f6e07649294bb3dbfa348824503, type: 2}
+  m_sharedMaterial: {fileID: 4525973580906226732, guid: b07b2f6e07649294bb3dbfa348824503, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -4673,7 +4662,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -40, y: 0}
+  m_AnchoredPosition: {x: -37, y: 0}
   m_SizeDelta: {x: 270, y: 250}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &2059034584460485099
@@ -4770,18 +4759,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 261863186188085176}
-        m_TargetAssemblyTypeName: scenechanger, Assembly-CSharp
-        m_MethodName: upgrade
-        m_Mode: 5
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: Speed
-          m_BoolArgument: 0
-        m_CallState: 2
       - m_Target: {fileID: 8285188341725151395}
         m_TargetAssemblyTypeName: randomizeButtons, Assembly-CSharp
         m_MethodName: scrambleButtons
@@ -4823,7 +4800,7 @@ Transform:
   m_GameObject: {fileID: 8648906561546826996}
   serializedVersion: 2
   m_LocalRotation: {x: 0.45366114, y: 0, z: 0, w: 0.89117426}
-  m_LocalPosition: {x: 781.634, y: 12.227136, z: 763.87164}
+  m_LocalPosition: {x: 7.786255, y: 12.357136, z: 0.12554932}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -5208,7 +5185,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -696, y: 2}
+  m_AnchoredPosition: {x: -689, y: 0}
   m_SizeDelta: {x: 270, y: 250}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &4899448508362058462
@@ -5305,18 +5282,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 261863186188085176}
-        m_TargetAssemblyTypeName: scenechanger, Assembly-CSharp
-        m_MethodName: upgrade
-        m_Mode: 5
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: Range
-          m_BoolArgument: 0
-        m_CallState: 2
       - m_Target: {fileID: 8285188341725151395}
         m_TargetAssemblyTypeName: randomizeButtons, Assembly-CSharp
         m_MethodName: scrambleButtons
@@ -5371,15 +5336,15 @@ PrefabInstance:
       objectReference: {fileID: 5735982234715147109}
     - target: {fileID: 8594480051914535298, guid: 724dfe3901ba8ea4bbd296c7fd23c50a, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: 183.36505
       objectReference: {fileID: 0}
     - target: {fileID: 8594480051914535298, guid: 724dfe3901ba8ea4bbd296c7fd23c50a, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.33
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8594480051914535298, guid: 724dfe3901ba8ea4bbd296c7fd23c50a, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -3
+      value: -790.75525
       objectReference: {fileID: 0}
     - target: {fileID: 8594480051914535298, guid: 724dfe3901ba8ea4bbd296c7fd23c50a, type: 3}
       propertyPath: m_LocalRotation.w
