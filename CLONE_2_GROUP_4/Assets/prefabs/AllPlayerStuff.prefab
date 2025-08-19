@@ -1117,8 +1117,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 2
-  m_fontSizeBase: 2
+  m_fontSize: 24
+  m_fontSizeBase: 24
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -1207,7 +1207,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playersPersistence: {fileID: 4748796541669165755}
   pauseScreen: {fileID: 5596216573869354110}
-  player: {fileID: 3581922997541254836}
+  player: {fileID: 7426651782871983160}
 --- !u!1 &2827602839406781289
 GameObject:
   m_ObjectHideFlags: 0
@@ -5379,17 +5379,12 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 724dfe3901ba8ea4bbd296c7fd23c50a, type: 3}
---- !u!1 &3581922997541254836 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 4236178636931738808, guid: 724dfe3901ba8ea4bbd296c7fd23c50a, type: 3}
-  m_PrefabInstance: {fileID: 827648562964044300}
-  m_PrefabAsset: {fileID: 0}
 --- !u!114 &4748796541669165755 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 5376023280771584183, guid: 724dfe3901ba8ea4bbd296c7fd23c50a, type: 3}
   m_PrefabInstance: {fileID: 827648562964044300}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3581922997541254836}
+  m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ff4fdc359ffc41f488e8d7ce3506eb5d, type: 3}
