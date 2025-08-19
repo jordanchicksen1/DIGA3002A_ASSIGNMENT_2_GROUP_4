@@ -63,7 +63,14 @@ public class scenechanger : MonoBehaviour
         levelToLoad += "_";
         levelToLoad += sub.ToString();
         Debug.Log(levelToLoad);
-        SceneManager.LoadScene(levelToLoad);
+        if (levelToLoad.Contains("Layer5"))
+        {
+            SceneManager.LoadScene("Assets/Scenes/Levels/bossRoom.unity");
+        }
+        else
+        {
+            SceneManager.LoadScene(levelToLoad);
+        }
         levelToLoad = "";
         player.GetComponent<PlayersPersistence>().currentLayer += 1;
         levelToLoad = "Layer";
