@@ -140,54 +140,6 @@ SphereCollider:
   serializedVersion: 3
   m_Radius: 0.5
   m_Center: {x: 0, y: 0, z: 0}
---- !u!1 &2756021664894342864
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1305963784546236491}
-  - component: {fileID: 3462127465639952691}
-  m_Layer: 0
-  m_Name: enemy1HealthManager
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1305963784546236491
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2756021664894342864}
-  serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.08783007, y: 0.9887314, z: 0.05855012}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 3032591466347806930}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &3462127465639952691
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2756021664894342864}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 14a516e8860466d4690d08ad515e96ff, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  maxHealth: 40
-  currentHealth: 0
-  healthBar: {fileID: 8631499941944746856}
-  enemyWhole: {fileID: 7456306260911841596}
 --- !u!1 &4269144193395337308
 GameObject:
   m_ObjectHideFlags: 0
@@ -202,7 +154,8 @@ GameObject:
   - component: {fileID: 3202201462921643312}
   - component: {fileID: 6330971920743510372}
   - component: {fileID: 7651997169133290833}
-  m_Layer: 0
+  - component: {fileID: 6514896055559201400}
+  m_Layer: 10
   m_Name: enemyItself
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -351,6 +304,23 @@ MonoBehaviour:
   shootTime: 0
   shootRecoveryTime: 3
   bulletSpeed: 12
+--- !u!114 &6514896055559201400
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4269144193395337308}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d1707ad947fc5414293f1d6ce0695a98, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spawnerScript: {fileID: 0}
+  maxHealth: 50
+  currentHealth: 0
+  healthBar: {fileID: 8631499941944746856}
+  enemyWhole: {fileID: 4269144193395337308}
 --- !u!1 &6034859971611589725
 GameObject:
   m_ObjectHideFlags: 0
@@ -490,7 +460,6 @@ Transform:
   m_Children:
   - {fileID: 7187263826027907755}
   - {fileID: 7340376784530527326}
-  - {fileID: 1305963784546236491}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &8962957256605358310
