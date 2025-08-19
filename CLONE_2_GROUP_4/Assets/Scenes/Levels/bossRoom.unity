@@ -960,6 +960,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2639487101239035251, guid: a143cccbfe629a349b744ce6274a575d, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 352.4651
+      objectReference: {fileID: 0}
+    - target: {fileID: 2639487101239035251, guid: a143cccbfe629a349b744ce6274a575d, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -273.6674
+      objectReference: {fileID: 0}
+    - target: {fileID: 2639487101239035251, guid: a143cccbfe629a349b744ce6274a575d, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 437.3
+      objectReference: {fileID: 0}
     - target: {fileID: 3337984043804906826, guid: a143cccbfe629a349b744ce6274a575d, type: 3}
       propertyPath: bossHealth
       value: 
@@ -980,6 +992,26 @@ PrefabInstance:
       propertyPath: endgameScriptGameobject
       value: 
       objectReference: {fileID: 1535526375}
+    - target: {fileID: 7502466892099170830, guid: a143cccbfe629a349b744ce6274a575d, type: 3}
+      propertyPath: m_fontSize
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 7502466892099170830, guid: a143cccbfe629a349b744ce6274a575d, type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: b07b2f6e07649294bb3dbfa348824503, type: 2}
+    - target: {fileID: 7502466892099170830, guid: a143cccbfe629a349b744ce6274a575d, type: 3}
+      propertyPath: m_fontSizeBase
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 7502466892099170830, guid: a143cccbfe629a349b744ce6274a575d, type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: 4525973580906226732, guid: b07b2f6e07649294bb3dbfa348824503, type: 2}
+    - target: {fileID: 7502466892099170830, guid: a143cccbfe629a349b744ce6274a575d, type: 3}
+      propertyPath: m_hasFontAssetChanged
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8757332182414805467, guid: a143cccbfe629a349b744ce6274a575d, type: 3}
       propertyPath: m_IsActive
       value: 0
