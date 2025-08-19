@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class healthManager : MonoBehaviour
 {
-    public float maxHealth = 100f;
+    public float maxHealth = 120f;
     public float currentHealth;
     public Image healthBar;
    //ublic TextMeshProUGUI healthText;

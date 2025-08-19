@@ -44,16 +44,16 @@ public class PlayersPersistence : MonoBehaviour
     //actions ui
     public qActionUI qActionUI;
     public bool canUseQAction = true;
-    public ParticleSystem qActionRepresentation;
+    
     public wActionUI wActionUI;
     public bool canUseWAction = true;
-    public ParticleSystem wActionRepresentation;
+  
     public eActionUI eActionUI;
     public bool canUseEAction = true;
-    public ParticleSystem eActionRepresentation;
+  
     public rActionUI rActionUI;
     public bool canUseRAction = true;
-    public ParticleSystem rActionRepresentation;
+
 
     //health stuff
     public healthManager healthManager;
@@ -200,7 +200,7 @@ public class PlayersPersistence : MonoBehaviour
         if (isPaused == false && canUseQAction == true)
         {
             qActionUI.UseQBar();
-            qActionRepresentation.Play();
+          
             canUseQAction = false;
             StartCoroutine(GiveBackQBar());
             abilities.CastQAbility();
@@ -213,7 +213,7 @@ public class PlayersPersistence : MonoBehaviour
         if (isPaused == false && canUseWAction == true)
         {
             wActionUI.UseWBar();
-            wActionRepresentation.Play();
+            
             canUseWAction = false;
             StartCoroutine(GiveBackWBar());
             abilities.CastWAbility();
@@ -225,7 +225,7 @@ public class PlayersPersistence : MonoBehaviour
         if (isPaused == false && canUseEAction == true)
         {
             eActionUI.UseEBar();
-            eActionRepresentation.Play();
+           
             canUseEAction = false;
             StartCoroutine(GiveBackEBar());
             abilities.CastEAbility();
@@ -242,7 +242,7 @@ public class PlayersPersistence : MonoBehaviour
             {
                 if (!rUIHold)
                     rActionUI.UseRBar();
-                rActionRepresentation.Play();
+               
                 //canUseRAction = false;
                 StartCoroutine(GiveBackRBar());
             }
