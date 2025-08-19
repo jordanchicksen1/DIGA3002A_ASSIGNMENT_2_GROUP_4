@@ -1,21 +1,31 @@
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Rendering.Universal;
 
 public class enemySpawning : MonoBehaviour
 {
     public List<GameObject> enemyQueue = new List<GameObject>();
-    private int listSize;
+    public List <Transform> spawnPoints = new List<Transform>();
+    public GameObject portal;
+    public GameObject player;
+    private int listSizeE;
+    private int listSizeS;
     private int index;
     public int enemiesKilled = 0;
     public int killGoal = 3;
+    public int totalKillGoal = 3;
     public int enemyCount = 3;
 
     private int lastSpawnKillCount = 0;
 
     void Start()
     {
-        listSize = enemyQueue.Count;
+        player = GameObject.FindGameObjectWithTag("Player");
+        portal = GameObject.FindGameObjectWithTag("Portal");
+        listSizeE = enemyQueue.Count;
+        listSizeS = spawnPoints.Count;
         index = 0;
+        portal.SetActive(false);
         SpawnBatch();
     }
 
@@ -26,18 +36,36 @@ public class enemySpawning : MonoBehaviour
             SpawnBatch();
             lastSpawnKillCount = enemiesKilled;
         }
+
+        if (enemiesKilled == totalKillGoal)
+        {
+            player.GetComponent<PlayersPersistence>().levelDone = true;
+            portal.SetActive(true);
+        }
     }
 
     void SpawnBatch()
     {
+        //Temporary list to use number representation of spawns that are still available
+        List<int> availableSpawns = new List<int>();
+        for (int i = 0; i < listSizeS; i++)
+        {
+            availableSpawns.Add(i);
+        }
+
         for (int i = 0; i < enemyCount; i++)
         {
-            if (index >= listSize)
+            if (index >= listSizeE || availableSpawns.Count == 0)
                 return;
+            
+            int randIndex = Random.Range(0, availableSpawns.Count);
+            int spawnPointIndex = availableSpawns[randIndex];
 
-            Instantiate(enemyQueue[index], transform.position, Quaternion.identity);
+            Instantiate(enemyQueue[index], spawnPoints[spawnPointIndex].transform.position, Quaternion.identity);
             index++;
+            availableSpawns.RemoveAt(randIndex); //Remove a spawnpoint if it was used
         }
     }
+
 }
 

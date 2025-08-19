@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using UnityEditor;
 using UnityEditor.ShaderGraph;
@@ -8,9 +9,9 @@ public class PlayersPersistence : MonoBehaviour
 {
     //UI stuff for level selects
     public GameObject levelSelection;
-    public GameObject instruction;
+    //public GameObject instruction;
     public bool levelDone = false;
-    private InputAction confirmEnd;
+    //private InputAction confirmEnd;
     
     //Persistent variable testing
     public int currentLayer = 0;
@@ -26,6 +27,13 @@ public class PlayersPersistence : MonoBehaviour
     private CharacterController characterController;
     private Abilities abilities;
     private bool rUIHold;
+    private bool animHold = false;
+    private Animator anim;
+    private int animState;
+    private Vector3 previousPosition;
+    private Vector3 currentVelocity;
+
+    [SerializeField] private float runningThreshold = 0.1f;
 
     //pause stuff
     public bool isPaused = false;
@@ -52,6 +60,7 @@ public class PlayersPersistence : MonoBehaviour
     public bool hasBeenHit = false;
     private void OnEnable()
     {
+        
         var playerInput = new Controls();
 
         playerInput.Player.Enable();
@@ -77,16 +86,19 @@ public class PlayersPersistence : MonoBehaviour
     {
         characterController = GetComponent<CharacterController>();
         abilities = GetComponent<Abilities>();
+        anim = GetComponentInChildren<Animator>();
 
-        confirmEnd = InputSystem.actions.FindAction("ConfirmEnd");
+        //confirmEnd = InputSystem.actions.FindAction("ConfirmEnd");
         DontDestroyOnLoad(this.gameObject); //DontDestroyOnLoad for persistence
     }
-
 
     void Update()
     {
         //gameObject.transform.LookAt(moveTargetTransform);
         //transform.position = Vector3.MoveTowards(transform.position, moveTargetTransform.transform.position, playerSpeed * Time.deltaTime);
+
+        anim.SetInteger("animState", animState);
+        
 
         if (target != null)
         {
@@ -98,23 +110,18 @@ public class PlayersPersistence : MonoBehaviour
             transform.rotation = Quaternion.Slerp(transform.rotation, lookRotation, Time.deltaTime * playerRotationSpeed);
             transform.position = Vector3.MoveTowards(transform.position, target.position, playerSpeed * Time.deltaTime);
         }
-        
-        //Confirming
-        if (confirmEnd.WasPressedThisFrame())
-        {
-            if (!levelDone)
-            {
-                instruction.SetActive(false);
-                levelDone = true;
-                levelSelection.SetActive(true);
-            } else if (levelDone)
-            {
-                instruction.SetActive(true);
-                levelDone = false;
-                levelSelection.SetActive(false);
-            }
-            
-        }
+
+        currentVelocity = (transform.position - previousPosition) / Time.deltaTime;
+        previousPosition = transform.position;
+
+        // Check if horizontal velocity exceeds threshold (ignore vertical movement)
+        float horizontalVelocity = new Vector3(currentVelocity.x, 0, currentVelocity.z).magnitude;
+        bool isRunning = horizontalVelocity > runningThreshold;
+
+        if (isRunning && !animHold)
+            animState = 4;
+        else if (!isRunning && !animHold)
+            animState = 0;
     }
 
     public void Target()
@@ -197,6 +204,7 @@ public class PlayersPersistence : MonoBehaviour
             canUseQAction = false;
             StartCoroutine(GiveBackQBar());
             abilities.CastQAbility();
+            animState = 3;
         }
     }
 
@@ -221,6 +229,7 @@ public class PlayersPersistence : MonoBehaviour
             canUseEAction = false;
             StartCoroutine(GiveBackEBar());
             abilities.CastEAbility();
+            animState = 2;
         }
     }
 
@@ -239,6 +248,7 @@ public class PlayersPersistence : MonoBehaviour
             }
 
             abilities.CastRAbility(!abilities.rAbilityActive);
+            animState = 1;
         }
     }
 
@@ -266,6 +276,11 @@ public class PlayersPersistence : MonoBehaviour
             StartCoroutine(ProjectileIssue());
         }
 
+        if (other.tag == "Portal")
+        {
+            levelSelection.SetActive(true);
+        }
+        
     }
     
     private void OnTriggerStay(Collider other)
@@ -444,6 +459,12 @@ public class PlayersPersistence : MonoBehaviour
     {
         yield return new WaitForSeconds(0.01f);
         hasBeenHit = false;
+    }
+
+    public IEnumerator AnimHold()
+    {
+        yield return new WaitForSeconds(2f);
+        animHold = false; 
     }
 }
 
