@@ -204,11 +204,12 @@ MonoBehaviour:
   m_text: 'Damage Up:
 
 
-    Orb Damage++
+    Energy Orb Damage++
 
-    Fox Fire Damage++
+    Drones Damage++
 
-    Charm Damage++'
+    Taser Orb
+    Damage++'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -2594,11 +2595,11 @@ MonoBehaviour:
   m_text: 'Range Up:
 
 
-    Orb Max Range++
+    Energy Orb Max Range++
 
-    Fox Fire detection Range++
+    Drones detection Range++
 
-    Charm
+    Taser
     Max Range++
 
 '
@@ -4011,11 +4012,11 @@ MonoBehaviour:
   m_text: 'Projectile Speed Up:
 
 
-    Orb Speed++
+    Energy Orb Speed++
 
-    Charm Speed++
+    Taser Orb Speed++
 
-    Fox Fire
+    Drones
     Speed++
 
 
@@ -4588,7 +4589,7 @@ AudioSource:
   m_audioClip: {fileID: 0}
   m_Resource: {fileID: 8300000, guid: 3fd41fac2485ef140b3d48d94cd77f6e, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.02
+  m_Volume: 0.2
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -4881,11 +4882,6 @@ MonoBehaviour:
     Speed Boost Duration++
 
     Dash Distance++
-
-    Dash
-    Duration++
-
-    Time Between Dashes++
 
 
 '
@@ -6627,7 +6623,7 @@ MonoBehaviour:
   m_text: 'Multi:
 
 
-    Fox Fire Count++
+    Drone Count++
 
     Number of dashes++
 
@@ -7352,7 +7348,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -739, y: 466}
+  m_AnchoredPosition: {x: -712, y: 466}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &7780680562153786916
