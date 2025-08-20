@@ -2088,7 +2088,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Desend through all layers of this computer by defeating enemies and gaining
+  m_text: Descend through all layers of this computer by defeating enemies and gaining
     upgrades
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: b07b2f6e07649294bb3dbfa348824503, type: 2}
