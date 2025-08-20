@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.Rendering.Universal;
 
@@ -8,6 +9,8 @@ public class enemySpawning : MonoBehaviour
     public List <Transform> spawnPoints = new List<Transform>();
     public GameObject portal;
     public GameObject player;
+    public GameObject current;
+    public GameObject total;
     private int listSizeE;
     private int listSizeS;
     private int index;
@@ -22,6 +25,8 @@ public class enemySpawning : MonoBehaviour
     {
         player = GameObject.FindGameObjectWithTag("Player");
         portal = GameObject.FindGameObjectWithTag("Portal");
+        current = GameObject.FindGameObjectWithTag("Current");
+        total = GameObject.FindGameObjectWithTag("Total");
         listSizeE = enemyQueue.Count;
         listSizeS = spawnPoints.Count;
         index = 0;
@@ -31,6 +36,9 @@ public class enemySpawning : MonoBehaviour
 
     void Update()
     {
+        current.GetComponent<TextMeshProUGUI>().text = enemiesKilled.ToString();
+        total.GetComponent<TextMeshProUGUI>().text = totalKillGoal.ToString();
+        
         if (enemiesKilled >= lastSpawnKillCount + killGoal)
         {
             SpawnBatch();
