@@ -25,4 +25,8 @@ public class uiManager : MonoBehaviour
     {
         Application.Quit();
     }
+
+   
+
+
 }
