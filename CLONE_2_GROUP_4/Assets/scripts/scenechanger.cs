@@ -29,21 +29,21 @@ public class scenechanger : MonoBehaviour
         switch (stat)
         {
             case "Range":
-                abilities.maxRange++;
-                abilities.foxFireDetectionRange++;
-                abilities.charmMaxRange++;
+                abilities.maxRange += 2;
+                abilities.foxFireDetectionRange += 1;
+                abilities.charmMaxRange += 2;
                 break;
             case "Damage":
-                abilities.damage++;
-                abilities.foxFireDamage++;
-                abilities.charmDamage++;
+                abilities.damage += 5;
+                abilities.foxFireDamage += 2;
+                abilities.charmDamage += 5;
                 break;
             case "Speed":
-                abilities.speedBoost++;
-                abilities.speedBoostDuration++;
+                abilities.speedBoost += 0.5f;
+                abilities.speedBoostDuration += 0.5f;
                 abilities.dashDistance++;
-                abilities.dashDuration++;
-                abilities.timeBetweenDashes++;
+                //abilities.dashDuration++;
+                //abilities.timeBetweenDashes++;
                 break;
             case "ProjSpeed":
                 abilities.orbSpeed++;
