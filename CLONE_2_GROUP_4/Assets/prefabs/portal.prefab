@@ -811,7 +811,7 @@ LineRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 0}
+  - {fileID: 2100000, guid: 823f6061fe6f8b34c84019269399d546, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -842,8 +842,8 @@ LineRenderer:
       serializedVersion: 2
       m_Curve:
       - serializedVersion: 3
-        time: 0
-        value: 1
+        time: 0.0022087097
+        value: 0.06310654
         inSlope: 0
         outSlope: 0
         tangentMode: 0
@@ -906,6 +906,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3a34ddb748a4ee44fb864af6743ef5e7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  player: {fileID: 0}
+  portal: {fileID: 0}
 --- !u!1001 &6380185434857198927
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -994,9 +996,6 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 2f36fae73d539da4cb3e7798c2cc7d28, type: 3}
       insertIndex: -1
       addedObject: {fileID: 6598779310282572799}
-    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 2f36fae73d539da4cb3e7798c2cc7d28, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 7503649637842979555}
   m_SourcePrefab: {fileID: 100100000, guid: 2f36fae73d539da4cb3e7798c2cc7d28, type: 3}
 --- !u!1 &6074107988296460318 stripped
 GameObject:
@@ -1024,18 +1023,6 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 6.3628936, z: 2.4855225}
   m_Center: {x: -8.5294577e-17, y: -0.19573757, z: -0.021627069}
---- !u!114 &7503649637842979555
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6074107988296460318}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9085ca9026257674388f4b91ff822800, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!4 &6845543606560076452 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 2f36fae73d539da4cb3e7798c2cc7d28, type: 3}
